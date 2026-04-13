@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus International Journal of Science and Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f1f3d; --deep-blue: #1a3366; --gold: #c8963e; --gold-light: #e8b86d;
+  --cream: #f7f3ec; --warm-white: #fdfaf5; --text: #1c1c1c; --text-muted: #5a5a6e;
+  --border: #d9cfc0; --accent: #8b1a1a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Source Serif 4',Georgia,serif; background:var(--warm-white); color:var(--text); font-size:16px; line-height:1.7; }
+
+/* ── LANG SYSTEM ── */
+.t { display:none !important; }
+.en .t-en { display:revert !important; }
+.ru .t-ru { display:revert !important; }
+/* inline text spans */
+span.t { display:none !important; }
+.en span.t-en { display:inline !important; }
+.ru span.t-ru { display:inline !important; }
+
+/* ── TOPBAR ── */
+.topbar { background:var(--navy); color:rgba(255,255,255,.7); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; display:flex; justify-content:space-between; align-items:center; padding:8px 48px; }
+.topbar a { color:rgba(255,255,255,.55); text-decoration:none; margin-left:16px; }
+.topbar a:hover { color:var(--gold-light); }
+.lang-switcher { display:flex; gap:4px; align-items:center; }
+.lang-btn { background:transparent; border:1px solid rgba(255,255,255,.25); color:rgba(255,255,255,.6); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; padding:3px 10px; cursor:pointer; border-radius:2px; transition:all .2s; }
+.lang-btn.active, .lang-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--navy); }
+
+/* ── HEADER ── */
+header { background:var(--navy); padding:32px 48px 28px; position:relative; overflow:hidden; }
+header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:32px; }
+.logo-img { width:80px; height:80px; object-fit:contain; flex-shrink:0; }
+.journal-title-group { flex:1; }
+.journal-abbr { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:4px; }
+.journal-title { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#fff; line-height:1.2; }
+.journal-subtitle { font-size:13px; color:rgba(255,255,255,.55); margin-top:6px; }
+.header-meta { text-align:right; font-family:'DM Mono',monospace; font-size:10.5px; color:rgba(255,255,255,.45); line-height:1.8; }
+.issn-tag { background:rgba(200,150,62,.15); border:1px solid rgba(200,150,62,.35); color:var(--gold-light); padding:2px 8px; border-radius:2px; display:inline-block; margin-top:4px; }
+
+/* ── NAV ── */
+nav { background:var(--deep-blue); border-bottom:1px solid rgba(255,255,255,.07); position:sticky; top:0; z-index:100; }
+.nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; padding:0 48px; flex-wrap:wrap; }
+.nav-inner a { color:rgba(255,255,255,.75); text-decoration:none; font-size:13px; padding:14px 16px; display:block; border-bottom:3px solid transparent; transition:all .2s; font-family:'Source Serif 4',serif; cursor:pointer; }
+.nav-inner a:hover, .nav-inner a.active { color:#fff; border-bottom-color:var(--gold); }
+
+/* ── PAGE SYSTEM ── */
+.page { display:none; }
+.page.active { display:block; }
+
+/* ── HERO ── */
+.hero { background:var(--cream); border-bottom:1px solid var(--border); padding:56px 48px; }
+.hero-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 300px; gap:56px; align-items:start; }
+.section-eyebrow { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.section-eyebrow::before { content:''; display:inline-block; width:24px; height:1.5px; background:var(--gold); }
+.issue-heading { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:16px; }
+.issue-heading em { color:var(--accent); font-style:italic; }
+.issue-desc { color:var(--text-muted); font-size:15px; max-width:560px; margin-bottom:28px; }
+.cover-wrap {}
+.cover-frame { position:relative; background:var(--navy); padding:10px; box-shadow:8px 12px 40px rgba(15,31,61,.22); }
+.cover-frame::before { content:''; position:absolute; top:-6px; left:-6px; right:6px; bottom:6px; border:1.5px solid var(--gold); z-index:0; }
+.cover-img { width:100%; display:block; position:relative; z-index:1; }
+
+/* ── ARTICLES ── */
+.article-list { list-style:none; }
+.article-item { border-bottom:1px solid var(--border); padding:20px 0; display:grid; grid-template-columns:36px 1fr; gap:14px; }
+.article-item:last-child { border-bottom:none; }
+.article-num { font-family:'DM Mono',monospace; font-size:12px; color:var(--gold); padding-top:3px; }
+.article-title { font-family:'Playfair Display',serif; font-size:15.5px; font-weight:600; color:var(--navy); margin-bottom:4px; line-height:1.4; text-decoration:none; display:block; }
+.article-title:hover { color:var(--accent); }
+.article-authors { font-size:12.5px; color:var(--text-muted); margin-bottom:3px; }
+.article-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:5px; }
+.tag { font-family:'DM Mono',monospace; font-size:10px; color:var(--deep-blue); border:1px solid var(--deep-blue); padding:1px 7px; border-radius:2px; opacity:.7; }
+.pdf-tag { color:var(--accent)!important; border-color:var(--accent)!important; opacity:1!important; }
+
+/* ── STATS ── */
+.stats-bar { background:var(--navy); color:#fff; }
+.stats-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.1); }
+.stat-item { background:var(--navy); padding:32px; text-align:center; }
+.stat-num { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; color:var(--gold); line-height:1; margin-bottom:6px; }
+.stat-label { font-size:12.5px; color:rgba(255,255,255,.55); letter-spacing:.05em; }
+
+/* ── AIMS ── */
+.aims-section { padding:72px 48px; border-bottom:1px solid var(--border); }
+.aims-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:280px 1fr; gap:72px; }
+.section-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:16px; }
+.scope-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.scope-card { border:1px solid var(--border); padding:20px 22px; background:var(--cream); position:relative; overflow:hidden; }
+.scope-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--gold); }
+.scope-icon { font-size:22px; margin-bottom:10px; display:block; }
+.scope-card h4 { font-family:'Playfair Display',serif; font-size:15px; font-weight:600; color:var(--navy); margin-bottom:6px; }
+.scope-card p { font-size:13px; color:var(--text-muted); line-height:1.6; }
+
+/* ── NEWS ── */
+.news-section { padding:72px 48px; background:var(--cream); border-bottom:1px solid var(--border); }
+.news-inner { max-width:1200px; margin:0 auto; }
+.news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+.news-card { background:#fff; border:1px solid var(--border); padding:24px; }
+.news-date { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--gold); letter-spacing:.1em; margin-bottom:10px; }
+.news-card h3 { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--navy); margin-bottom:10px; line-height:1.4; }
+.news-card p { font-size:13.5px; color:var(--text-muted); }
+.read-more { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; color:var(--accent); font-family:'DM Mono',monospace; margin-top:12px; text-decoration:none; cursor:pointer; }
+.read-more:hover { color:var(--navy); }
+
+/* ── EDITORIAL ── */
+.editorial-section { padding:72px 48px; border-bottom:1px solid var(--border); }
+.editorial-inner { max-width:1200px; margin:0 auto; }
+.board-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; }
+.board-card { display:flex; gap:16px; align-items:flex-start; }
+.avatar { width:52px; height:52px; border-radius:50%; background:var(--deep-blue); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; color:var(--gold); font-weight:700; flex-shrink:0; }
+.board-info h4 { font-family:'Playfair Display',serif; font-size:15px; font-weight:600; color:var(--navy); margin-bottom:2px; }
+.board-role { font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:.08em; text-transform:uppercase; margin-bottom:3px; }
+.board-affil { font-size:12.5px; color:var(--text-muted); line-height:1.4; }
+
+/* ── SUBMIT ── */
+.submit-section { background:linear-gradient(135deg,var(--navy) 0%,var(--deep-blue) 100%); padding:80px 48px; text-align:center; position:relative; overflow:hidden; }
+.submit-section::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; border:1.5px solid rgba(200,150,62,.15); border-radius:50%; }
+.submit-section::after { content:''; position:absolute; bottom:-60px; left:-60px; width:240px; height:240px; border:1.5px solid rgba(200,150,62,.1); border-radius:50%; }
+.submit-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+.submit-section h2 { font-family:'Playfair Display',serif; font-size:34px; color:#fff; margin-bottom:16px; }
+.submit-section p { color:rgba(255,255,255,.65); font-size:15px; margin-bottom:32px; }
+.btn-primary { display:inline-block; background:var(--gold); color:var(--navy); font-family:'DM Mono',monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; padding:14px 36px; text-decoration:none; cursor:pointer; border:none; transition:background .2s; }
+.btn-primary:hover { background:var(--gold-light); }
+.btn-outline { display:inline-block; border:1.5px solid rgba(255,255,255,.35); color:rgba(255,255,255,.8); font-family:'DM Mono',monospace; font-size:12.5px; letter-spacing:.1em; padding:13px 32px; margin-left:12px; cursor:pointer; transition:all .2s; text-decoration:none; }
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+
+/* ── PAGE CONTENT SHARED ── */
+.page-hero { background:var(--navy); padding:56px 48px; position:relative; }
+.page-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.page-hero-inner { max-width:1200px; margin:0 auto; }
+.page-hero h1 { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; color:#fff; margin-bottom:10px; }
+.page-hero p { color:rgba(255,255,255,.6); font-size:15px; max-width:600px; }
+.page-body { max-width:1200px; margin:0 auto; padding:64px 48px; }
+
+/* ── ARCHIVE PAGE ── */
+.archive-year { margin-bottom:48px; }
+.archive-year-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:10px; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+.archive-issues { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.archive-issue-card { border:1px solid var(--border); padding:20px; background:var(--cream); cursor:pointer; transition:all .2s; }
+.archive-issue-card:hover { border-color:var(--gold); background:#fff; }
+.archive-issue-card .vol { font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:.1em; margin-bottom:6px; }
+.archive-issue-card h4 { font-family:'Playfair Display',serif; font-size:14px; color:var(--navy); font-weight:600; }
+.archive-issue-card p { font-size:12px; color:var(--text-muted); margin-top:4px; }
+
+/* ── SUBMIT PAGE ── */
+.submit-form-section { padding:64px 48px; }
+.submit-form-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 320px; gap:64px; }
+.form-group { margin-bottom:24px; }
+.form-group label { display:block; font-family:'DM Mono',monospace; font-size:11px; color:var(--navy); letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px; }
+.form-group input, .form-group textarea, .form-group select {
+  width:100%; padding:12px 14px; border:1px solid var(--border); background:#fff;
+  font-family:'Source Serif 4',serif; font-size:14px; color:var(--text);
+  outline:none; transition:border-color .2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--gold); }
+.form-group textarea { height:120px; resize:vertical; }
+.form-steps { list-style:none; }
+.form-steps li { display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+.form-steps li:last-child { border-bottom:none; }
+.step-num { width:28px; height:28px; border-radius:50%; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:11px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step-text h4 { font-family:'Playfair Display',serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:3px; }
+.step-text p { font-size:13px; color:var(--text-muted); }
+
+/* ── FOR AUTHORS PAGE ── */
+.authors-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:32px; }
+.authors-card { border:1px solid var(--border); padding:28px; background:var(--cream); }
+.authors-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:12px; padding-bottom:10px; border-bottom:1.5px solid var(--gold); }
+.authors-card ul { list-style:none; }
+.authors-card ul li { font-size:14px; color:var(--text-muted); padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:8px; }
+.authors-card ul li::before { content:'→'; color:var(--gold); font-size:12px; flex-shrink:0; margin-top:2px; }
+.authors-card ul li:last-child { border-bottom:none; }
+.checklist-section { background:var(--cream); border:1px solid var(--border); padding:32px; margin-top:32px; position:relative; }
+.checklist-section::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--gold); }
+
+/* ── INDEXING PAGE ── */
+.index-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+.index-card { border:1px solid var(--border); padding:28px; text-align:center; background:#fff; }
+.index-logo { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.index-desc { font-size:13px; color:var(--text-muted); line-height:1.6; }
+.index-badge { display:inline-block; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; margin-top:12px; letter-spacing:.08em; }
+
+/* ── FOOTER ── */
+footer { background:#080f1e; color:rgba(255,255,255,.5); padding:48px 48px 28px; }
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+footer h4 { font-family:'Playfair Display',serif; font-size:13px; color:rgba(255,255,255,.8); margin-bottom:14px; }
+footer p { font-size:12.5px; line-height:1.7; }
+footer ul { list-style:none; }
+footer ul li { margin-bottom:8px; }
+footer ul li a { font-size:12.5px; color:rgba(255,255,255,.45); text-decoration:none; cursor:pointer; transition:color .2s; }
+footer ul li a:hover { color:var(--gold-light); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:20px; display:flex; justify-content:space-between; font-size:11.5px; }
+.idx-badge { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.5); font-family:'DM Mono',monospace; font-size:9.5px; padding:3px 9px; }
+.indexing-logos { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+
+/* ── INFO BOX ── */
+.info-box { background:var(--cream); border:1px solid var(--border); border-left:4px solid var(--gold); padding:20px 24px; margin-bottom:24px; }
+.info-box h4 { font-family:'Playfair Display',serif; font-size:15px; color:var(--navy); margin-bottom:6px; }
+.info-box p { font-size:13.5px; color:var(--text-muted); }
+
+@media (max-width:900px) {
+  .hero-inner, .aims-inner, .submit-form-inner { grid-template-columns:1fr !important; }
+  .cover-wrap { display:none; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .stats-inner, .archive-issues { grid-template-columns:repeat(2,1fr); }
+  .news-grid, .board-grid, .authors-grid, .index-grid { grid-template-columns:1fr; }
+  .topbar, header, .nav-inner, .hero, .stats-bar, .aims-section, .news-section,
+  .editorial-section, .submit-section, footer, .page-hero, .page-body,
+  .submit-form-section { padding-left:20px !important; padding-right:20px !important; }
+}
+</style>
+</head>
+<body class="en">
+
+<!-- ══════════════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════════════ -->
+<div class="topbar">
+  <span>
+    <span class="t t-en">Peer-reviewed open-access scientific journal</span>
+    <span class="t t-ru">Рецензируемый научный журнал открытого доступа</span>
+  </span>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <span>
+      <a onclick="showPage('contact')">
+        <span class="t t-en">Contact</span><span class="t t-ru">Контакты</span>
+      </a>
+      <a onclick="showPage('archive')">
+        <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+      </a>
+      <a onclick="showPage('indexing')">
+        <span class="t t-en">Indexing</span><span class="t t-ru">Индексация</span>
+      </a>
+    </span>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo-img" alt="Nexus Journal Logo">
+    <div class="journal-title-group">
+      <div class="journal-abbr">
+        <span class="t t-en">ISSN 3028-1261 · Est. 2023</span>
+        <span class="t t-ru">ISSN 3028-1261 · Осн. 2023</span>
+      </div>
+      <div class="journal-title">
+        Nexus International Journal<br>of Science and Technology
+      </div>
+      <div class="journal-subtitle">
+        <span class="t t-en">Published quarterly · Open Access · DOI indexed</span>
+        <span class="t t-ru">Выходит ежеквартально · Открытый доступ · Индексация DOI</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div>
+        <span class="t t-en">Vol. 15, No. 2 · 2026</span>
+        <span class="t t-ru">Том 15, № 2 · 2025</span>
+      </div>
+      <div>
+        <span class="t t-en">Impact Factor: 2.14</span>
+        <span class="t t-ru">Импакт-фактор: 2.14</span>
+      </div>
+      <div class="issn-tag">e-ISSN 3028-1261</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a onclick="showPage('home')" id="nav-home" class="active">
+      <span class="t t-en">Home</span><span class="t t-ru">Главная</span>
+    </a>
+    <a onclick="showPage('current')" id="nav-current">
+      <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
+    </a>
+    <a onclick="showPage('archive')" id="nav-archive">
+      <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+    </a>
+    <a onclick="showPage('submit')" id="nav-submit">
+      <span class="t t-en">Submit</span><span class="t t-ru">Подать статью</span>
+    </a>
+    <a onclick="showPage('authors')" id="nav-authors">
+      <span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span>
+    </a>
+    <a onclick="showPage('editorial')" id="nav-editorial">
+      <span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span>
+    </a>
+    <a onclick="showPage('indexing')" id="nav-indexing">
+      <span class="t t-en">Indexing</span><span class="t t-ru">Индексация</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="section-eyebrow">
+          <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
+        </div>
+        <h1 class="issue-heading">
+          <span class="t t-en">Volume 15, Issue 2<br><em>April – June 2026</em></span>
+          <span class="t t-ru">Том 15, Выпуск 2<br><em>Апрель – Июнь 2026</em></span>
+        </h1>
+        <p class="issue-desc">
+          <span class="t t-en">This issue features 18 original research articles spanning artificial intelligence, materials science, environmental engineering, and applied mathematics.</span>
+          <span class="t t-ru">В этом выпуске представлены 18 оригинальных статей по искусственному интеллекту, материаловедению, экологическому инжинирингу и прикладной математике.</span>
+        </p>
+        <ul class="article-list">
+          <li class="article-item">
+            <span class="article-num">01</span>
+            <div>
+              <a href="maqola2026/q2_maqola1.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Deep Learning Approaches for Predictive Maintenance in Industrial Systems</span>
+                <span class="t t-ru">Подходы глубокого обучения для прогнозного обслуживания промышленных систем</span>
+              </a>
+              <div class="article-authors">Karimov A., Petrov I., Zhang L. — pp. 3–18</div>
+              <div class="article-tags"><span class="tag">AI</span><span class="tag">ML</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">02</span>
+            <div>
+              <a href="maqola2026/q2_maqola2.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Novel Nanocomposite Materials for High-Temperature Applications</span>
+                <span class="t t-ru">Новые нанокомпозитные материалы для высокотемпературных применений</span>
+              </a>
+              <div class="article-authors">Toshmatov B., Smirnova E. — pp. 19–34</div>
+              <div class="article-tags"><span class="tag">Materials</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">03</span>
+            <div>
+              <a href="maqola2026/q2_maqola3.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Water Resource Management in Arid Regions: Integrated Modelling</span>
+                <span class="t t-ru">Управление водными ресурсами в засушливых регионах: интегрированный подход</span>
+              </a>
+              <div class="article-authors">Yusupov R., Kovalev D. — pp. 35–52</div>
+              <div class="article-tags"><span class="tag">Environment</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">04</span>
+            <div>
+              <a href="maqola2026/q2_maqola4.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Optimization Algorithms for Renewable Energy Grid Integration</span>
+                <span class="t t-ru">Алгоритмы оптимизации для интеграции возобновляемой энергии в сеть</span>
+              </a>
+              <div class="article-authors">Abdullaev N., Torres M. — pp. 53–71</div>
+              <div class="article-tags"><span class="tag">Energy</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+        </ul>
+        <div style="margin-top:24px;">
+          <a onclick="showPage('current')" class="btn-primary" style="text-decoration:none;cursor:pointer;">
+            <span class="t t-en">View Full Issue →</span><span class="t t-ru">Весь выпуск →</span>
+          </a>
+        </div>
+      </div>
+      <div class="cover-wrap">
+        <div class="cover-frame">
+          <img src="cover.png" class="cover-img" alt="Journal Cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">14</div>
+        <div class="stat-label"><span class="t t-en">Years Published</span><span class="t t-ru">Лет издания</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">840+</div>
+        <div class="stat-label"><span class="t t-en">Articles Published</span><span class="t t-ru">Опубликованных статей</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">62</div>
+        <div class="stat-label"><span class="t t-en">Countries Represented</span><span class="t t-ru">Стран-участниц</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2.14</div>
+        <div class="stat-label"><span class="t t-en">Impact Factor</span><span class="t t-ru">Импакт-фактор</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIMS & SCOPE -->
+  <section class="aims-section">
+    <div class="aims-inner">
+      <div>
+        <div class="section-eyebrow"><span class="t t-en">Aims & Scope</span><span class="t t-ru">Цели и охват</span></div>
+        <h2 class="section-title"><span class="t t-en">What We Publish</span><span class="t t-ru">Что мы публикуем</span></h2>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.75;">
+          <span class="t t-en">We publish original research, review articles, and technical communications across applied sciences, engineering, and interdisciplinary fields. All submissions undergo rigorous double-blind peer review.</span>
+          <span class="t t-ru">Мы публикуем оригинальные исследования, обзорные статьи и технические сообщения в области прикладных наук, инженерии и смежных дисциплин. Все рукописи проходят двойное слепое рецензирование.</span>
+        </p>
+      </div>
+      <div class="scope-grid">
+        <div class="scope-card">
+          <span class="scope-icon">⚙️</span>
+          <h4><span class="t t-en">Engineering</span><span class="t t-ru">Инженерия</span></h4>
+          <p><span class="t t-en">Mechanical, civil, chemical and electronic engineering advances.</span><span class="t t-ru">Механическая, гражданская, химическая и электронная инженерия.</span></p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🧬</span>
+          <h4><span class="t t-en">Life Sciences</span><span class="t t-ru">Науки о жизни</span></h4>
+          <p><span class="t t-en">Biotechnology, environmental biology, and medical applications.</span><span class="t t-ru">Биотехнологии, экологическая биология, медицинские приложения.</span></p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">💻</span>
+          <h4><span class="t t-en">Computer Science</span><span class="t t-ru">Информатика</span></h4>
+          <p><span class="t t-en">AI, machine learning, data science and intelligent systems.</span><span class="t t-ru">ИИ, машинное обучение, науки о данных, интеллектуальные системы.</span></p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🌿</span>
+          <h4><span class="t t-en">Environment</span><span class="t t-ru">Окружающая среда</span></h4>
+          <p><span class="t t-en">Sustainable development, climate science, resource management.</span><span class="t t-ru">Устойчивое развитие, климатология, управление ресурсами.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news-section">
+    <div class="news-inner">
+      <div class="section-eyebrow"><span class="t t-en">News & Announcements</span><span class="t t-ru">Новости и объявления</span></div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-date"><span class="t t-en">15 MAY 2025</span><span class="t t-ru">15 МАЯ 2025</span></div>
+          <h3><span class="t t-en">Call for Papers: Special Issue on Sustainable Energy</span><span class="t t-ru">Приглашение: спецвыпуск по возобновляемой энергетике</span></h3>
+          <p><span class="t t-en">Submissions open until August 30, 2025.</span><span class="t t-ru">Приём статей до 30 августа 2025 г.</span></p>
+          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
+        </div>
+        <div class="news-card">
+          <div class="news-date"><span class="t t-en">02 APR 2025</span><span class="t t-ru">02 АПР 2025</span></div>
+          <h3><span class="t t-en">Journal Included in Scopus Database</span><span class="t t-ru">Журнал включён в базу данных Scopus</span></h3>
+          <p><span class="t t-en">The journal is now fully indexed in Elsevier's Scopus citation database.</span><span class="t t-ru">Журнал полностью проиндексирован в реферативной базе Scopus.</span></p>
+          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
+        </div>
+        <div class="news-card">
+          <div class="news-date"><span class="t t-en">10 MAR 2025</span><span class="t t-ru">10 МАР 2025</span></div>
+          <h3><span class="t t-en">Updated Author Guidelines for 2025</span><span class="t t-ru">Обновлённые рекомендации для авторов 2025</span></h3>
+          <p><span class="t t-en">New manuscript formatting requirements are now in effect.</span><span class="t t-ru">Новые требования к оформлению рукописей вступили в силу.</span></p>
+          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBMIT CTA -->
+  <section class="submit-section">
+    <div class="submit-inner">
+      <div class="section-eyebrow" style="justify-content:center;color:rgba(200,150,62,.8);">
+        <span class="t t-en">Submit Your Research</span><span class="t t-ru">Подайте вашу статью</span>
+      </div>
+      <h2><span class="t t-en">Share Your Science with the World</span><span class="t t-ru">Поделитесь своими исследованиями с миром</span></h2>
+      <p><span class="t t-en">We welcome submissions from researchers worldwide. Average time to first decision: 3 weeks. Open Access with DOI.</span><span class="t t-ru">Принимаем рукописи от исследователей всего мира. Среднее время до решения: 3 недели. Открытый доступ с DOI.</span></p>
+      <div>
+        <a onclick="showPage('submit')" class="btn-primary" style="cursor:pointer;">
+          <span class="t t-en">Submit Manuscript</span><span class="t t-ru">Подать рукопись</span>
+        </a>
+        <a onclick="showPage('authors')" class="btn-outline" style="cursor:pointer;">
+          <span class="t t-en">Author Guidelines</span><span class="t t-ru">Руководство для авторов</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE: CURRENT ISSUE
+══════════════════════════════════════════════ -->
+<div class="page" id="page-current">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
+      </div>
+      <h1><span class="t t-en">Volume 15, Issue 2 · April–June 2026</span><span class="t t-ru">Том 15, Выпуск 2 · Апрель–Июнь 2025</span></h1>
+      <p><span class="t t-en">18 original research articles · Published June 1, 2026</span><span class="t t-ru">18 оригинальных статей · Опубликовано 1 июня 2026</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;">
+      <div>
+        <ul class="article-list">
+          
+		  
+		  
+		  <li class="article-item">
+            <span class="article-num">01</span>
+            <div>
+              <a href="maqola2026/maqola1.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Deep Learning Approaches for Predictive Maintenance in Industrial Systems</span>
+                <span class="t t-ru">Подходы глубокого обучения для прогнозного обслуживания промышленных систем</span>
+              </a>
+              <div class="article-authors">Karimov A., Petrov I., Zhang L. — pp. 3–18</div>
+              <div class="article-tags"><span class="tag">AI</span><span class="tag">ML</span><span class="tag">Industry 4.0</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+		  
+		  
+          <li class="article-item">
+            <span class="article-num">02</span>
+            <div>
+              <a href="maqola2026/maqola2.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Novel Nanocomposite Materials for High-Temperature Applications</span>
+                <span class="t t-ru">Новые нанокомпозитные материалы для высокотемпературных применений</span>
+              </a>
+              <div class="article-authors">Toshmatov B., Smirnova E. — pp. 19–34</div>
+              <div class="article-tags"><span class="tag">Materials</span><span class="tag">Nanotechnology</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">03</span>
+            <div>
+              <a href="maqola2026/maqola3.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Water Resource Management in Arid Regions: Integrated Modelling</span>
+                <span class="t t-ru">Управление водными ресурсами в засушливых регионах</span>
+              </a>
+              <div class="article-authors">Yusupov R., Kovalev D., Hashimoto K. — pp. 35–52</div>
+              <div class="article-tags"><span class="tag">Hydrology</span><span class="tag">Environment</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">04</span>
+            <div>
+              <a href="maqola2026/maqola4.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Optimization Algorithms for Renewable Energy Grid Integration</span>
+                <span class="t t-ru">Алгоритмы оптимизации для интеграции возобновляемой энергии</span>
+              </a>
+              <div class="article-authors">Abdullaev N., Torres M. — pp. 53–71</div>
+              <div class="article-tags"><span class="tag">Energy</span><span class="tag">Optimization</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">05</span>
+            <div>
+              <a href="maqola2026/maqola5.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Advances in Quantum Computing for Cryptographic Applications</span>
+                <span class="t t-ru">Достижения в квантовых вычислениях для криптографических приложений</span>
+              </a>
+              <div class="article-authors">Mirzayev S., Chen W. — pp. 72–89</div>
+              <div class="article-tags"><span class="tag">Quantum</span><span class="tag">Cryptography</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">06</span>
+            <div>
+              <a href="maqola2026/maqola6.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Biomedical Signal Processing Using Convolutional Neural Networks</span>
+                <span class="t t-ru">Обработка биомедицинских сигналов с помощью свёрточных нейронных сетей</span>
+              </a>
+              <div class="article-authors">Rahimov A., Ivanova T. — pp. 90–108</div>
+              <div class="article-tags"><span class="tag">Biomedical</span><span class="tag">CNN</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>		
+          </li>
+					  <li class="article-item">
+			  <span class="article-num">07</span>
+			  <div>
+				<a href="maqola2026/q2_maqola7.pdf" target="_blank" class="article-title">
+				  <span class="t t-en">Information Security Challenges in Local Area Networks</span>
+				  <span class="t t-ru">Проблемы информационной безопасности в локальных сетях</span>
+				</a>
+				<div class="article-authors">Berdimurodov M.A. — pp. 19–32</div>
+				<div class="article-tags">
+				  <span class="tag">Cybersecurity</span>
+				  <span class="tag">LAN</span>
+				  <span class="tag">Network Security</span>
+				  <span class="tag pdf-tag">📄 PDF</span>
+				</div>
+			  </div>
+			</li>
+		  
+        </ul>
+      </div>
+      <div>
+        <div class="cover-frame" style="margin-bottom:24px;">
+          <img src="cover.png" class="cover-img" alt="Journal Cover">
+        </div>
+        <div class="info-box">
+          <h4><span class="t t-en">Issue Info</span><span class="t t-ru">Информация о выпуске</span></h4>
+          <p style="font-family:'DM Mono',monospace;font-size:11px;line-height:2;color:var(--text-muted);">
+            <span class="t t-en">Vol. 14, No. 2 · 2025<br>Articles: 18<br>Pages: 1–214<br>Published: 01.06.2025<br>e-ISSN 3028-1261</span>
+            <span class="t t-ru">Том 14, № 2 · 2025<br>Статей: 18<br>Страниц: 1–214<br>Опубликовано: 01.06.2025<br>e-ISSN 3028-1261</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: ARCHIVE
+══════════════════════════════════════════════ -->
+<div class="page" id="page-archive">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+      </div>
+      <h1><span class="t t-en">All Published Issues</span><span class="t t-ru">Все опубликованные выпуски</span></h1>
+      <p><span class="t t-en">Browse our complete archive from 2023 to present.</span><span class="t t-ru">Просматривайте полный архив с 2023 года по настоящее время.</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+  
+    <!-- 2026 -->
+    <div class="archive-year">
+      <div class="archive-year-title">2026</div>
+      <div class="archive-issues">
+		<!--
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 15, No. 4</span><span class="t t-ru">Том 15, № 4</span></div>
+          <h4><span class="t t-en">October – December</span><span class="t t-ru">Октябрь – Декабрь</span></h4>
+          <p>20 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+		-->
+		
+		<!--
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 15, No. 3</span><span class="t t-ru">Том 15, № 3</span></div>
+          <h4><span class="t t-en">July – September</span><span class="t t-ru">Июль – Сентябрь</span></h4>
+          <p>17 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+		-->
+		<!--
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 15, No. 2</span><span class="t t-ru">Том 15, № 2</span></div>
+          <h4><span class="t t-en">April – June</span><span class="t t-ru">Апрель – Июнь</span></h4>
+          <p>19 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+		-->
+		
+        <div class="archive-issue-card">
+		 <div class="archive-issue-card" onclick="window.location.href='archive-2026.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 15, No. 1</span><span class="t t-ru">Том 15, № 1</span></div>
+          <h4><span class="t t-en">January – March</span><span class="t t-ru">Январь – Март</span></h4>
+          <p>15 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+      </div>
+    </div>
+	
+	<!-- 2025 -->
+    <div class="archive-year">
+      <div class="archive-year-title">2025</div>
+      <div class="archive-issues">
+        <div class="archive-issue-card" onclick="window.location.href='archive-2025.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 14, No. 4</span><span class="t t-ru">Том 14, № 4</span></div>
+          <h4><span class="t t-en">October – December</span><span class="t t-ru">Октябрь – Декабрь</span></h4>
+          <p>20 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2025.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 14, No. 3</span><span class="t t-ru">Том 14, № 3</span></div>
+          <h4><span class="t t-en">July – September</span><span class="t t-ru">Июль – Сентябрь</span></h4>
+          <p>19 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2025.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 14, No. 2</span><span class="t t-ru">Том 14, № 2</span></div>
+          <h4><span class="t t-en">April – June</span><span class="t t-ru">Апрель – Июнь</span></h4>
+          <p>21 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2025.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 14, No. 1</span><span class="t t-ru">Том 14, № 1</span></div>
+          <h4><span class="t t-en">January – March</span><span class="t t-ru">Январь – Март</span></h4>
+          <p>20 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- 2024 -->
+    <div class="archive-year">
+      <div class="archive-year-title">2024</div>
+      <div class="archive-issues">
+        <div class="archive-issue-card" onclick="window.location.href='archive-2024.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 13, No. 4</span><span class="t t-ru">Том 13, № 4</span></div>
+          <h4><span class="t t-en">October – December</span><span class="t t-ru">Октябрь – Декабрь</span></h4>
+          <p>20 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2024.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 13, No. 3</span><span class="t t-ru">Том 13, № 3</span></div>
+          <h4><span class="t t-en">July – September</span><span class="t t-ru">Июль – Сентябрь</span></h4>
+          <p>17 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2024.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 13, No. 2</span><span class="t t-ru">Том 13, № 2</span></div>
+          <h4><span class="t t-en">April – June</span><span class="t t-ru">Апрель – Июнь</span></h4>
+          <p>19 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card" onclick="window.location.href='archive-2024.html'" style="cursor:pointer;">
+          <div class="vol"><span class="t t-en">Vol. 13, No. 1</span><span class="t t-ru">Том 13, № 1</span></div>
+          <h4><span class="t t-en">January – March</span><span class="t t-ru">Январь – Март</span></h4>
+          <p>15 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- 2023 -->
+    <div class="archive-year">
+      <div class="archive-year-title">2023</div>
+      <div class="archive-issues">
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 12, No. 4</span><span class="t t-ru">Том 12, № 4</span></div>
+          <h4><span class="t t-en">October – December</span><span class="t t-ru">Октябрь – Декабрь</span></h4>
+          <p>18 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 12, No. 3</span><span class="t t-ru">Том 12, № 3</span></div>
+          <h4><span class="t t-en">July – September</span><span class="t t-ru">Июль – Сентябрь</span></h4>
+          <p>16 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 12, No. 2</span><span class="t t-ru">Том 12, № 2</span></div>
+          <h4><span class="t t-en">April – June</span><span class="t t-ru">Апрель – Июнь</span></h4>
+          <p>21 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+        <div class="archive-issue-card">
+          <div class="vol"><span class="t t-en">Vol. 12, No. 1</span><span class="t t-ru">Том 12, № 1</span></div>
+          <h4><span class="t t-en">January – March</span><span class="t t-ru">Январь – Март</span></h4>
+          <p>14 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: SUBMIT
+══════════════════════════════════════════════ -->
+<div class="page" id="page-submit">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Submit</span><span class="t t-ru">Подача статьи</span>
+      </div>
+      <h1><span class="t t-en">Submit Your Manuscript</span><span class="t t-ru">Подать рукопись</span></h1>
+      <p><span class="t t-en">We accept original research articles, review papers, and technical notes.</span><span class="t t-ru">Принимаем оригинальные исследования, обзорные статьи и технические заметки.</span></p>
+    </div>
+  </div>
+  <div class="submit-form-section">
+    <div class="submit-form-inner">
+      <div>
+        <h2 class="section-title" style="margin-bottom:28px;">
+          <span class="t t-en">Submission Form</span><span class="t t-ru">Форма подачи</span>
+        </h2>
+        <div class="form-group">
+          <label><span class="t t-en">Article Title</span><span class="t t-ru">Название статьи</span></label>
+          <input type="text" placeholder="Enter the full title of your manuscript">
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Authors (Full names)</span><span class="t t-ru">Авторы (полные имена)</span></label>
+          <input type="text" placeholder="e.g. Karimov A.B., Petrov I.V.">
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Corresponding Author Email</span><span class="t t-ru">Email ответственного автора</span></label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Affiliation / Institution</span><span class="t t-ru">Учреждение / организация</span></label>
+          <input type="text" placeholder="University / Institute name">
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Research Field</span><span class="t t-ru">Область исследования</span></label>
+          <select>
+            <option><span class="t t-en">Select field</span><span class="t t-ru">Выберите область</span></option>
+            <option>Engineering</option>
+            <option>Computer Science / AI</option>
+            <option>Life Sciences</option>
+            <option>Environment</option>
+            <option>Materials Science</option>
+            <option>Applied Mathematics</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Abstract</span><span class="t t-ru">Аннотация</span></label>
+          <textarea placeholder="Paste your abstract here (max 300 words)"></textarea>
+        </div>
+        <div class="form-group">
+          <label><span class="t t-en">Upload Manuscript (PDF)</span><span class="t t-ru">Загрузить рукопись (PDF)</span></label>
+          <input type="file" accept=".pdf,.doc,.docx">
+        </div>
+        <button class="btn-primary" style="margin-top:8px;">
+          <span class="t t-en">Submit Manuscript →</span><span class="t t-ru">Отправить рукопись →</span>
+        </button>
+      </div>
+      <div>
+        <div class="info-box" style="margin-bottom:24px;">
+          <h4><span class="t t-en">Submission Checklist</span><span class="t t-ru">Требования к подаче</span></h4>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">
+            <span class="t t-en">Before submitting, ensure your manuscript meets all requirements.</span>
+            <span class="t t-ru">Перед подачей убедитесь, что рукопись соответствует всем требованиям.</span>
+          </p>
+        </div>
+        <ul class="form-steps">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4><span class="t t-en">Prepare Manuscript</span><span class="t t-ru">Подготовьте рукопись</span></h4>
+              <p><span class="t t-en">Follow our formatting guidelines. Use the provided template.</span><span class="t t-ru">Следуйте нашим правилам оформления. Используйте шаблон.</span></p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4><span class="t t-en">Fill in the Form</span><span class="t t-ru">Заполните форму</span></h4>
+              <p><span class="t t-en">Complete all fields and attach your manuscript as PDF.</span><span class="t t-ru">Заполните все поля и прикрепите рукопись в формате PDF.</span></p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4><span class="t t-en">Peer Review (3 weeks)</span><span class="t t-ru">Рецензирование (3 недели)</span></h4>
+              <p><span class="t t-en">Double-blind review by two independent experts.</span><span class="t t-ru">Двойное слепое рецензирование двумя независимыми экспертами.</span></p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <h4><span class="t t-en">Decision & Publication</span><span class="t t-ru">Решение и публикация</span></h4>
+              <p><span class="t t-en">Upon acceptance, your article receives a DOI and is published online.</span><span class="t t-ru">После принятия статья получает DOI и публикуется онлайн.</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: FOR AUTHORS
+══════════════════════════════════════════════ -->
+<div class="page" id="page-authors">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span>
+      </div>
+      <h1><span class="t t-en">Author Guidelines</span><span class="t t-ru">Руководство для авторов</span></h1>
+      <p><span class="t t-en">Everything you need to know to prepare and submit your manuscript.</span><span class="t t-ru">Всё, что нужно знать для подготовки и подачи рукописи.</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="authors-grid">
+      <div class="authors-card">
+        <h3>📄 <span class="t t-en">Manuscript Preparation</span><span class="t t-ru">Подготовка рукописи</span></h3>
+        <ul>
+          <li><span class="t t-en">Use MS Word or LaTeX templates</span><span class="t t-ru">Используйте шаблоны MS Word или LaTeX</span></li>
+          <li><span class="t t-en">Language: English (preferred) or Russian</span><span class="t t-ru">Язык: английский (предпочтительно) или русский</span></li>
+          <li><span class="t t-en">Maximum length: 8000 words</span><span class="t t-ru">Максимальный объём: 8000 слов</span></li>
+          <li><span class="t t-en">Abstract: 150–300 words</span><span class="t t-ru">Аннотация: 150–300 слов</span></li>
+          <li><span class="t t-en">Keywords: 4–8 terms</span><span class="t t-ru">Ключевые слова: 4–8 терминов</span></li>
+          <li><span class="t t-en">References: APA 7th edition</span><span class="t t-ru">Список литературы: APA 7-е издание</span></li>
+        </ul>
+      </div>
+      <div class="authors-card">
+        <h3>🔬 <span class="t t-en">Types of Articles</span><span class="t t-ru">Типы статей</span></h3>
+        <ul>
+          <li><span class="t t-en">Original Research Articles</span><span class="t t-ru">Оригинальные исследовательские статьи</span></li>
+          <li><span class="t t-en">Review Articles</span><span class="t t-ru">Обзорные статьи</span></li>
+          <li><span class="t t-en">Technical Notes / Short Communications</span><span class="t t-ru">Технические заметки / краткие сообщения</span></li>
+          <li><span class="t t-en">Case Studies</span><span class="t t-ru">Тематические исследования</span></li>
+          <li><span class="t t-en">Letters to the Editor</span><span class="t t-ru">Письма в редакцию</span></li>
+        </ul>
+      </div>
+      <div class="authors-card">
+        <h3>⚖️ <span class="t t-en">Ethics & Policies</span><span class="t t-ru">Этика и политика</span></h3>
+        <ul>
+          <li><span class="t t-en">Manuscripts must be original and unpublished</span><span class="t t-ru">Рукопись должна быть оригинальной и неопубликованной</span></li>
+          <li><span class="t t-en">Simultaneous submission not allowed</span><span class="t t-ru">Одновременная подача в другие издания запрещена</span></li>
+          <li><span class="t t-en">Plagiarism checked via iThenticate</span><span class="t t-ru">Проверка на плагиат через iThenticate</span></li>
+          <li><span class="t t-en">All authors must approve final submission</span><span class="t t-ru">Все авторы должны одобрить финальную версию</span></li>
+          <li><span class="t t-en">Conflicts of interest must be disclosed</span><span class="t t-ru">Конфликты интересов должны быть раскрыты</span></li>
+        </ul>
+      </div>
+      <div class="authors-card">
+        <h3>💰 <span class="t t-en">Publication Fees</span><span class="t t-ru">Стоимость публикации</span></h3>
+        <ul>
+          <li><span class="t t-en">Submission fee: Free</span><span class="t t-ru">Подача статьи: бесплатно</span></li>
+          <li><span class="t t-en">Review fee: Free</span><span class="t t-ru">Рецензирование: бесплатно</span></li>
+          <li><span class="t t-en">Open Access fee: $150 USD</span><span class="t t-ru">Открытый доступ: $150 USD</span></li>
+          <li><span class="t t-en">Waiver available for developing countries</span><span class="t t-ru">Льготы для развивающихся стран</span></li>
+          <li><span class="t t-en">No hidden charges</span><span class="t t-ru">Никаких скрытых платежей</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="checklist-section">
+      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:16px;">
+        ✅ <span class="t t-en">Pre-submission Checklist</span><span class="t t-ru">Чек-лист перед подачей</span>
+      </h3>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">Title page prepared separately</span><span class="t t-ru">Титульная страница подготовлена отдельно</span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">Abstract within word limit</span><span class="t t-ru">Аннотация в пределах лимита слов</span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">All figures high resolution (300 dpi)</span><span class="t t-ru">Все рисунки высокого разрешения (300 dpi)</span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">References formatted correctly</span><span class="t t-ru">Список литературы оформлен правильно</span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">Ethics statement included</span><span class="t t-ru">Этическое заявление включено</span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text-muted);cursor:pointer;">
+          <input type="checkbox"> <span class="t t-en">Manuscript saved as PDF</span><span class="t t-ru">Рукопись сохранена в формате PDF</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: EDITORIAL BOARD
+══════════════════════════════════════════════ -->
+<div class="page" id="page-editorial">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Editorial Board</span><span class="t t-ru">Редакционная коллегия</span>
+      </div>
+      <h1><span class="t t-en">Meet Our Editors</span><span class="t t-ru">Наши редакторы</span></h1>
+      <p><span class="t t-en">Our international editorial board ensures the highest standards of peer review.</span><span class="t t-ru">Международная редколлегия обеспечивает высочайшие стандарты рецензирования.</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <!-- Editor in chief -->
+    <div style="background:var(--cream);border:1px solid var(--border);padding:32px;margin-bottom:40px;display:flex;gap:28px;align-items:flex-start;">
+      <div style="width:80px;height:80px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:700;flex-shrink:0;">A</div>
+      <div>
+        <div class="board-role" style="font-size:11px;"><span class="t t-en">Editor-in-Chief</span><span class="t t-ru">Главный редактор</span></div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:6px;">Prof. A. Karimov</h2>
+        <div style="font-size:14px;color:var(--text-muted);margin-bottom:10px;">
+          <span class="t t-en">National University of Sciences, Tashkent, Uzbekistan</span>
+          <span class="t t-ru">Национальный университет наук, Ташкент, Узбекистан</span>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-muted);max-width:600px;">
+          <span class="t t-en">Prof. Karimov specializes in applied mathematics and computational engineering. He has published over 120 peer-reviewed articles and holds editorial positions at three international journals.</span>
+          <span class="t t-ru">Проф. Каримов специализируется в области прикладной математики и вычислительной инженерии. Автор более 120 рецензируемых статей, член редколлегий трёх международных журналов.</span>
+        </p>
+      </div>
+    </div>
+    <!-- Board members -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:24px;border-bottom:2px solid var(--gold);padding-bottom:10px;">
+      <span class="t t-en">Associate Editors</span><span class="t t-ru">Ответственные редакторы</span>
+    </h3>
+    <div class="board-grid" style="margin-bottom:40px;">
+      <div class="board-card">
+        <div class="avatar">E</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">Deputy Editor</span><span class="t t-ru">Заместитель редактора</span></div>
+          <h4>Dr. E. Smirnova</h4>
+          <div class="board-affil"><span class="t t-en">Institute of Materials Science, Moscow</span><span class="t t-ru">Институт материаловедения, Москва</span></div>
+        </div>
+      </div>
+      <div class="board-card">
+        <div class="avatar">R</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">Associate Editor</span><span class="t t-ru">Ответственный редактор</span></div>
+          <h4>Prof. R. Yusupov</h4>
+          <div class="board-affil"><span class="t t-en">Technical University of Samarkand</span><span class="t t-ru">Технический университет Самарканда</span></div>
+        </div>
+      </div>
+      <div class="board-card">
+        <div class="avatar">L</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">International Editor</span><span class="t t-ru">Международный редактор</span></div>
+          <h4>Prof. L. Zhang</h4>
+          <div class="board-affil"><span class="t t-en">Tsinghua University, Beijing</span><span class="t t-ru">Университет Цинхуа, Пекин</span></div>
+        </div>
+      </div>
+      <div class="board-card">
+        <div class="avatar">M</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">Section Editor — CS</span><span class="t t-ru">Редактор раздела — ИТ</span></div>
+          <h4>Dr. M. Torres</h4>
+          <div class="board-affil"><span class="t t-en">Universidad Politécnica, Madrid</span><span class="t t-ru">Политехнический университет, Мадрид</span></div>
+        </div>
+      </div>
+      <div class="board-card">
+        <div class="avatar">K</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">Section Editor — Environment</span><span class="t t-ru">Редактор раздела — Экология</span></div>
+          <h4>Prof. K. Hashimoto</h4>
+          <div class="board-affil"><span class="t t-en">Kyoto University, Japan</span><span class="t t-ru">Университет Киото, Япония</span></div>
+        </div>
+      </div>
+      <div class="board-card">
+        <div class="avatar">N</div>
+        <div class="board-info">
+          <div class="board-role"><span class="t t-en">Section Editor — Engineering</span><span class="t t-ru">Редактор раздела — Инженерия</span></div>
+          <h4>Prof. N. Abdullaev</h4>
+          <div class="board-affil"><span class="t t-en">Tashkent State Technical University</span><span class="t t-ru">Ташкентский государственный технический университет</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE: INDEXING
+══════════════════════════════════════════════ -->
+<div class="page" id="page-indexing">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Indexing & Abstracting</span><span class="t t-ru">Индексация и реферирование</span>
+      </div>
+      <h1><span class="t t-en">Where We Are Indexed</span><span class="t t-ru">Где индексируется журнал</span></h1>
+      <p><span class="t t-en">Our journal is indexed in major international databases ensuring global visibility.</span><span class="t t-ru">Журнал индексируется в ведущих международных базах данных, обеспечивая глобальную видимость.</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="index-grid">
+      
+	  
+	  
+	  
+    
+      <div class="index-card">
+        <div class="index-logo">DOAJ</div>
+        <div class="index-desc"><span class="t t-en">Directory of Open Access Journals — quality open access research.</span><span class="t t-ru">Каталог журналов открытого доступа — качественные исследования.</span></div>
+        <div class="index-badge"><span class="t t-en">INDEXED</span><span class="t t-ru">ИНДЕКСИРУЕТСЯ</span></div>
+      </div>
+      <div class="index-card">
+        <div class="index-logo">CrossRef</div>
+        <div class="index-desc"><span class="t t-en">Digital Object Identifier (DOI) registration and citation linking.</span><span class="t t-ru">Регистрация DOI и связывание цитирований.</span></div>
+        <div class="index-badge"><span class="t t-en">MEMBER</span><span class="t t-ru">УЧАСТНИК</span></div>
+      </div>
+      <div class="index-card">
+        <div class="index-logo">Google Scholar</div>
+        <div class="index-desc"><span class="t t-en">Freely accessible web search engine for scholarly literature.</span><span class="t t-ru">Бесплатная поисковая система для научной литературы.</span></div>
+        <div class="index-badge"><span class="t t-en">INDEXED</span><span class="t t-ru">ИНДЕКСИРУЕТСЯ</span></div>
+      </div>
+      <div class="index-card">
+        <div class="index-logo">EBSCO</div>
+        <div class="index-desc"><span class="t t-en">Leading provider of research databases and discovery tools.</span><span class="t t-ru">Ведущий поставщик исследовательских баз данных.</span></div>
+        <div class="index-badge"><span class="t t-en">INDEXED</span><span class="t t-ru">ИНДЕКСИРУЕТСЯ</span></div>
+      </div>
+    </div>
+    <div style="margin-top:48px;background:var(--cream);border:1px solid var(--border);padding:32px;border-left:4px solid var(--gold);">
+      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:12px;">
+        <span class="t t-en">Journal Metrics</span><span class="t t-ru">Показатели журнала</span>
+      </h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;">2.14</div>
+          <div style="font-size:12px;color:var(--text-muted);">Impact Factor</div>
+        </div>
+      
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;">0.68</div>
+          <div style="font-size:12px;color:var(--text-muted);">CiteScore</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;">3 wk</div>
+          <div style="font-size:12px;color:var(--text-muted);"><span class="t t-en">Avg. Review Time</span><span class="t t-ru">Ср. время рецензии</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER (always visible)
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>Nexus International Journal of Science and Technology</h4>
+        <p><span class="t t-en">A peer-reviewed, open-access scientific journal publishing high-quality research in applied sciences and engineering since 2023.</span><span class="t t-ru">Рецензируемый научный журнал открытого доступа, публикующий высококачественные исследования в области прикладных наук и инженерии с 2023 года.</span></p>
+
+      </div>
+      <div>
+        <h4><span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span></h4>
+        <ul>
+          <li><a onclick="showPage('submit')"><span class="t t-en">Submit Paper</span><span class="t t-ru">Подать статью</span></a></li>
+          <li><a onclick="showPage('authors')"><span class="t t-en">Author Guidelines</span><span class="t t-ru">Рекомендации</span></a></li>
+          <li><a onclick="showPage('authors')"><span class="t t-en">Review Process</span><span class="t t-ru">Рецензирование</span></a></li>
+          <li><a onclick="showPage('authors')"><span class="t t-en">Publication Fees</span><span class="t t-ru">Стоимость публикации</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="t t-en">Quick Links</span><span class="t t-ru">Быстрые ссылки</span></h4>
+        <ul>
+          <li><a onclick="showPage('current')"><span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span></a></li>
+          <li><a onclick="showPage('archive')"><span class="t t-en">All Issues</span><span class="t t-ru">Все выпуски</span></a></li>
+          <li><a onclick="showPage('editorial')"><span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span></a></li>
+          <li><a onclick="showPage('indexing')"><span class="t t-en">Indexing</span><span class="t t-ru">Индексация</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="t t-en">Contact</span><span class="t t-ru">Контакты</span></h4>
+        <p>editorial@nexus-journal.de<br>
+          <span class="t t-en">100095 Musterstraße 12 10115 Berlin</span><span class="t t-ru">Musterstraße 12, 10115 Берлин, Германия</span><br>
+          +49 30 1234567
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nexus International Journal of Science and Technology. <span class="t t-en">All rights reserved.</span><span class="t t-ru">Все права защищены.</span></span>
+      <span>ISSN 3028-1261 (Online)</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── LANGUAGE SYSTEM ──
+function setLang(lang) {
+  document.body.className = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+  });
+  localStorage.setItem('lang', lang);
+}
+
+// ── PAGE NAVIGATION ──
+function showPage(name) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target page
+  const target = document.getElementById('page-' + name);
+  if (target) target.classList.add('active');
+  // Update nav active state
+  document.querySelectorAll('.nav-inner a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + name);
+  if (navEl) navEl.classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── INIT ──
+(function() {
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+})();
+</script>
+</body>
+</html>

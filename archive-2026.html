@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive 2026 — Nexus International Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f1f3d; --deep-blue:#1a3366; --gold:#c8963e; --gold-light:#e8b86d;
+  --cream:#f7f3ec; --warm-white:#fdfaf5; --text:#1c1c1c; --text-muted:#5a5a6e;
+  --border:#d9cfc0; --accent:#8b1a1a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Source Serif 4',Georgia,serif; background:var(--warm-white); color:var(--text); font-size:16px; line-height:1.7; }
+
+/* ── LANG SYSTEM ── */
+.t { display:none !important; }
+.en span.t-en { display:inline !important; }
+.ru span.t-ru { display:inline !important; }
+.en .t-en { display:revert !important; }
+.ru .t-ru { display:revert !important; }
+span.t { display:none !important; }
+
+/* ── TOPBAR ── */
+.topbar { background:var(--navy); color:rgba(255,255,255,.7); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; display:flex; justify-content:space-between; align-items:center; padding:8px 48px; }
+.topbar a { color:rgba(255,255,255,.55); text-decoration:none; margin-left:16px; }
+.topbar a:hover { color:var(--gold-light); }
+.lang-switcher { display:flex; gap:4px; align-items:center; }
+.lang-btn { background:transparent; border:1px solid rgba(255,255,255,.25); color:rgba(255,255,255,.6); font-family:'DM Mono',monospace; font-size:11px; padding:3px 10px; cursor:pointer; border-radius:2px; transition:all .2s; }
+.lang-btn.active, .lang-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--navy); }
+
+/* ── HEADER ── */
+header { background:var(--navy); padding:24px 48px; position:relative; overflow:hidden; }
+header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; }
+.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; }
+.journal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; line-height:1.2; flex:1; }
+.journal-title span { font-size:13px; font-weight:400; color:rgba(255,255,255,.5); display:block; margin-top:3px; font-family:'DM Mono',monospace; }
+
+/* ── NAV ── */
+nav { background:var(--deep-blue); border-bottom:1px solid rgba(255,255,255,.07); position:sticky; top:0; z-index:100; }
+.nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; padding:0 48px; }
+.nav-inner a { color:rgba(255,255,255,.75); text-decoration:none; font-size:13px; padding:14px 16px; display:block; border-bottom:3px solid transparent; transition:all .2s; font-family:'Source Serif 4',serif; cursor:pointer; }
+.nav-inner a:hover, .nav-inner a.active { color:#fff; border-bottom-color:var(--gold); }
+
+/* ── PAGE HERO ── */
+.page-hero { background:var(--navy); padding:48px 48px 40px; position:relative; }
+.page-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.page-hero-inner { max-width:1200px; margin:0 auto; }
+.breadcrumb { font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,.4); margin-bottom:14px; }
+.breadcrumb a { color:rgba(200,150,62,.7); text-decoration:none; cursor:pointer; }
+.breadcrumb a:hover { color:var(--gold); }
+.page-hero h1 { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; color:#fff; margin-bottom:10px; }
+.page-hero p { color:rgba(255,255,255,.6); font-size:15px; max-width:600px; }
+
+/* ── ISSUE TABS ── */
+.issue-tabs { background:var(--cream); border-bottom:1px solid var(--border); padding:0 48px; }
+.issue-tabs-inner { max-width:1200px; margin:0 auto; display:flex; gap:0; }
+.issue-tab { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.06em; padding:14px 22px; border-bottom:3px solid transparent; cursor:pointer; color:var(--text-muted); transition:all .2s; }
+.issue-tab:hover { color:var(--navy); }
+.issue-tab.active { color:var(--navy); border-bottom-color:var(--gold); font-weight:500; }
+
+/* ── ISSUE PANEL ── */
+.issue-panel { display:none; }
+.issue-panel.active { display:block; }
+
+/* ── ARTICLE LIST ── */
+.articles-wrap { max-width:1200px; margin:0 auto; padding:48px 48px; }
+.issue-meta-bar { display:flex; gap:32px; align-items:center; background:var(--cream); border:1px solid var(--border); padding:20px 24px; margin-bottom:32px; flex-wrap:wrap; }
+.issue-meta-item { font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); letter-spacing:.06em; }
+.issue-meta-item strong { color:var(--navy); display:block; font-size:13px; margin-bottom:2px; }
+
+.section-eyebrow { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.section-eyebrow::before { content:''; display:inline-block; width:24px; height:1.5px; background:var(--gold); }
+
+.article-list { list-style:none; }
+.article-item { border-bottom:1px solid var(--border); padding:22px 0; display:grid; grid-template-columns:44px 1fr; gap:16px; }
+.article-item:last-child { border-bottom:none; }
+.article-num { font-family:'DM Mono',monospace; font-size:12px; color:var(--gold); padding-top:3px; font-weight:500; }
+.article-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--navy); margin-bottom:5px; line-height:1.4; text-decoration:none; display:block; transition:color .2s; }
+.article-title:hover { color:var(--accent); }
+.article-authors { font-size:13px; color:var(--text-muted); margin-bottom:4px; }
+.article-pages { font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); }
+.article-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+.tag { font-family:'DM Mono',monospace; font-size:10px; color:var(--deep-blue); border:1px solid var(--deep-blue); padding:1px 7px; border-radius:2px; opacity:.7; }
+.pdf-tag { color:var(--accent)!important; border-color:var(--accent)!important; opacity:1!important; font-weight:500; }
+.pdf-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:6px 14px; text-decoration:none; border-radius:2px; transition:background .2s; }
+.pdf-btn:hover { background:var(--deep-blue); }
+
+/* ── FOOTER ── */
+footer { background:#080f1e; color:rgba(255,255,255,.5); padding:36px 48px 24px; }
+.footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+footer p { font-size:12px; }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:12px; color:rgba(255,255,255,.4); text-decoration:none; cursor:pointer; }
+.footer-links a:hover { color:var(--gold-light); }
+
+@media (max-width:900px) {
+  .topbar, header, .issue-tabs, .articles-wrap, footer { padding-left:20px !important; padding-right:20px !important; }
+  .nav-inner { padding:0 20px; flex-wrap:wrap; }
+  .issue-tabs-inner { flex-wrap:wrap; }
+  .issue-meta-bar { gap:16px; }
+}
+</style>
+</head>
+<body class="en">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>
+    <span class="t t-en">Nexus International Journal of Science and Technology</span>
+    <span class="t t-ru">Nexus Международный журнал науки и технологий</span>
+  </span>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="index.html">
+      <span class="t t-en">← Back to Main</span>
+      <span class="t t-ru">← На главную</span>
+    </a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo-img" alt="Nexus Journal Logo">
+    <div class="journal-title">
+      Nexus International Journal of Science and Technology
+      <span>ISSN 3028-1261 · Open Access</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">
+      <span class="t t-en">Home</span><span class="t t-ru">Главная</span>
+    </a>
+    <a href="index.html">
+      <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
+    </a>
+    <a class="active">
+      <span class="t t-en">Archive 2026</span><span class="t t-ru">Архив 2026</span>
+    </a>
+    <a href="index.html">
+      <span class="t t-en">Submit</span><span class="t t-ru">Подать статью</span>
+    </a>
+    <a href="index.html">
+      <span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span>
+    </a>
+    <a href="index.html">
+      <span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span>
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">
+        <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+      </a>
+      &nbsp;/&nbsp;
+      <span style="color:rgba(255,255,255,.6);">2026</span>
+    </div>
+    <h1>
+      <span class="t t-en">Archive — 2026</span>
+      <span class="t t-ru">Архив — 2026</span>
+    </h1>
+    <p>
+      <span class="t t-en">Volume 15 · 4 issues · 72 articles published</span>
+      <span class="t t-ru">Том 15 · 4 выпуска · 72 опубликованных статьи</span>
+    </p>
+  </div>
+</div>
+
+<!-- ISSUE TABS -->
+<div class="issue-tabs">
+  <div class="issue-tabs-inner">
+    <div class="issue-tab active" onclick="showIssue('q4')">
+      <span class="t t-en">No. 4 · Oct–Dec</span><span class="t t-ru">№ 4 · Окт–Дек</span>
+    </div>
+    <div class="issue-tab" onclick="showIssue('q3')">
+      <span class="t t-en">No. 3 · Jul–Sep</span><span class="t t-ru">№ 3 · Июл–Сен</span>
+    </div>
+    <div class="issue-tab" onclick="showIssue('q2')">
+      <span class="t t-en">No. 2 · Apr–Jun</span><span class="t t-ru">№ 2 · Апр–Июн</span>
+    </div>
+    <div class="issue-tab" onclick="showIssue('q1')">
+      <span class="t t-en">No. 1 · Jan–Mar</span><span class="t t-ru">№ 1 · Янв–Мар</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ ISSUE Q4 ══════════════════ 
+<div class="issue-panel active" id="panel-q4">
+  <div class="articles-wrap">
+    <div class="issue-meta-bar">
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Volume / Issue</span><span class="t t-ru">Том / Выпуск</span></strong>
+        <span class="t t-en">Vol. 15, No. 4</span><span class="t t-ru">Том 15, № 4</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Period</span><span class="t t-ru">Период</span></strong>
+        <span class="t t-en">October – December 2026</span><span class="t t-ru">Октябрь – Декабрь 2026</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Articles</span><span class="t t-ru">Статей</span></strong>
+        20
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Published</span><span class="t t-ru">Опубликовано</span></strong>
+        01.12.2026
+      </div>
+    </div>
+
+    <div class="section-eyebrow">
+      <span class="t t-en">Articles — Vol. 13, No. 4</span>
+      <span class="t t-ru">Статьи — Том 13, № 4</span>
+    </div>
+
+    <ul class="article-list">
+      <li class="article-item">
+       
+ <span class="article-num">01</span>
+            <div>
+              <a href="maqola2026/maqola1.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Deep Learning Approaches for Predictive Maintenance in Industrial Systems</span>
+                <span class="t t-ru">Подходы глубокого обучения для прогнозного обслуживания промышленных систем</span>
+              </a>
+              <div class="article-authors">Karimov A., Petrov I., Zhang L. — pp. 3–18</div>
+              <div class="article-tags"><span class="tag">AI</span><span class="tag">ML</span><span class="tag">Industry 4.0</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+		  
+		  
+          <li class="article-item">
+            <span class="article-num">02</span>
+            <div>
+              <a href="maqola2026/maqola2.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Novel Nanocomposite Materials for High-Temperature Applications</span>
+                <span class="t t-ru">Новые нанокомпозитные материалы для высокотемпературных применений</span>
+              </a>
+              <div class="article-authors">Toshmatov B., Smirnova E. — pp. 19–34</div>
+              <div class="article-tags"><span class="tag">Materials</span><span class="tag">Nanotechnology</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">03</span>
+            <div>
+              <a href="maqola2026/maqola3.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Water Resource Management in Arid Regions: Integrated Modelling</span>
+                <span class="t t-ru">Управление водными ресурсами в засушливых регионах</span>
+              </a>
+              <div class="article-authors">Yusupov R., Kovalev D., Hashimoto K. — pp. 35–52</div>
+              <div class="article-tags"><span class="tag">Hydrology</span><span class="tag">Environment</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">04</span>
+            <div>
+              <a href="maqola2026/maqola4.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Optimization Algorithms for Renewable Energy Grid Integration</span>
+                <span class="t t-ru">Алгоритмы оптимизации для интеграции возобновляемой энергии</span>
+              </a>
+              <div class="article-authors">Abdullaev N., Torres M. — pp. 53–71</div>
+              <div class="article-tags"><span class="tag">Energy</span><span class="tag">Optimization</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">05</span>
+            <div>
+              <a href="maqola2026/maqola5.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Advances in Quantum Computing for Cryptographic Applications</span>
+                <span class="t t-ru">Достижения в квантовых вычислениях для криптографических приложений</span>
+              </a>
+              <div class="article-authors">Mirzayev S., Chen W. — pp. 72–89</div>
+              <div class="article-tags"><span class="tag">Quantum</span><span class="tag">Cryptography</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>
+          </li>
+          <li class="article-item">
+            <span class="article-num">06</span>
+            <div>
+              <a href="maqola2026/maqola6.pdf" target="_blank" class="article-title">
+                <span class="t t-en">Biomedical Signal Processing Using Convolutional Neural Networks</span>
+                <span class="t t-ru">Обработка биомедицинских сигналов с помощью свёрточных нейронных сетей</span>
+              </a>
+              <div class="article-authors">Rahimov A., Ivanova T. — pp. 90–108</div>
+              <div class="article-tags"><span class="tag">Biomedical</span><span class="tag">CNN</span><span class="tag pdf-tag">📄 PDF</span></div>
+            </div>		
+          </li>
+					  <li class="article-item">
+			  <span class="article-num">07</span>
+			  <div>
+				<a href="maqola2026/maqola7.pdf" target="_blank" class="article-title">
+				  <span class="t t-en">Information Security Challenges in Local Area Networks</span>
+				  <span class="t t-ru">Проблемы информационной безопасности в локальных сетях</span>
+				</a>
+				<div class="article-authors">Berdimurodov M.A. — pp. 19–32</div>
+				<div class="article-tags">
+				  <span class="tag">Cybersecurity</span>
+				  <span class="tag">LAN</span>
+				  <span class="tag">Network Security</span>
+				  <span class="tag pdf-tag">📄 PDF</span>
+				</div>
+			  </div>
+			</li>
+	  
+	  
+    </ul>
+  </div>
+</div>
+-->
+
+
+<!-- ══════════════════ ISSUE Q3 ══════════════════ 
+<div class="issue-panel" id="panel-q3">
+  <div class="articles-wrap">
+    <div class="issue-meta-bar">
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Volume / Issue</span><span class="t t-ru">Том / Выпуск</span></strong>
+        <span class="t t-en">Vol. 13, No. 3</span><span class="t t-ru">Том 13, № 3</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Period</span><span class="t t-ru">Период</span></strong>
+        <span class="t t-en">July – September 2026</span><span class="t t-ru">Июль – Сентябрь 2026</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Articles</span><span class="t t-ru">Статей</span></strong>
+        17
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Published</span><span class="t t-ru">Опубликовано</span></strong>
+        01.09.2026
+      </div>
+    </div>
+
+    <div class="section-eyebrow">
+      <span class="t t-en">Articles — Vol. 13, No. 3</span>
+      <span class="t t-ru">Статьи — Том 13, № 3</span>
+    </div>
+
+    <ul class="article-list">
+      <li class="article-item">
+        <span class="article-num">01</span>
+        <div>
+          <a href="maqola2026/q3_maqola1.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Smart Grid Optimization Using Reinforcement Learning Algorithms</span>
+            <span class="t t-ru">Оптимизация умных сетей с использованием алгоритмов обучения с подкреплением</span>
+          </a>
+          <div class="article-authors">Abdullaev N., Torres M., Li X.</div>
+          <div class="article-pages">pp. 1–18 · </div>
+          <div class="article-tags">
+            <span class="tag">Energy</span><span class="tag">AI</span><span class="tag">Smart Grid</span>
+          </div>
+          <a href="maqola2026/q3_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">02</span>
+        <div>
+          <a href="maqola2026/q3_maqola2.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Bioremediation of Heavy Metals in Industrial Wastewater</span>
+            <span class="t t-ru">Биоремедиация тяжёлых металлов в промышленных сточных водах</span>
+          </a>
+          <div class="article-authors">Karimova D., Petrov I.</div>
+          <div class="article-pages">pp. 19–35 · </div>
+          <div class="article-tags">
+            <span class="tag">Environment</span><span class="tag">Chemistry</span>
+          </div>
+          <a href="maqola2026/q3_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">03</span>
+        <div>
+          <a href="maqola2026/q3_maqola3.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Advances in Autonomous Vehicle Path Planning Algorithms</span>
+            <span class="t t-ru">Достижения в алгоритмах планирования маршрута для автономных транспортных средств</span>
+          </a>
+          <div class="article-authors">Nazarov B., Yamamoto R.</div>
+          <div class="article-pages">pp. 36–54 · </div>
+          <div class="article-tags">
+            <span class="tag">Robotics</span><span class="tag">AI</span>
+          </div>
+          <a href="maqola2026/q3_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">04</span>
+        <div>
+          <a href="maqola2026/q3_maqola4.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Thermal Performance Analysis of Phase Change Materials in Building Walls</span>
+            <span class="t t-ru">Анализ теплофизических характеристик материалов с фазовым переходом в стенах зданий</span>
+          </a>
+          <div class="article-authors">Toshmatov B., Müller H.</div>
+          <div class="article-pages">pp. 55–71 · </div>
+          <div class="article-tags">
+            <span class="tag">Materials</span><span class="tag">Building</span>
+          </div>
+          <a href="maqola2026/q3_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+-->
+<!-- ══════════════════ ISSUE Q2 ══════════════════ -->
+<div class="issue-panel" id="panel-q2">
+  <div class="articles-wrap">
+    <div class="issue-meta-bar">
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Volume / Issue</span><span class="t t-ru">Том / Выпуск</span></strong>
+        <span class="t t-en">Vol. 13, No. 2</span><span class="t t-ru">Том 13, № 2</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Period</span><span class="t t-ru">Период</span></strong>
+        <span class="t t-en">April – June 2026</span><span class="t t-ru">Апрель – Июнь 2026</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Articles</span><span class="t t-ru">Статей</span></strong>
+        19
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Published</span><span class="t t-ru">Опубликовано</span></strong>
+        01.06.2026
+      </div>
+    </div>
+
+    <div class="section-eyebrow">
+      <span class="t t-en">Articles — Vol. 13, No. 2</span>
+      <span class="t t-ru">Статьи — Том 13, № 2</span>
+    </div>
+
+    <ul class="article-list">
+      <li class="article-item">
+        <span class="article-num">01</span>
+        <div>
+          <a href="maqola2026/q2_maqola1.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Hybrid Solar-Wind Energy Systems for Remote Communities</span>
+            <span class="t t-ru">Гибридные солнечно-ветровые энергосистемы для отдалённых сообществ</span>
+          </a>
+          <div class="article-authors">Yusupov R., Santos P., Hashimoto K.</div>
+          <div class="article-pages">pp. 1–20 · </div>
+          <div class="article-tags">
+            <span class="tag">Energy</span><span class="tag">Renewable</span>
+          </div>
+          <a href="maqola2026/q2_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">02</span>
+        <div>
+          <a href="maqola2026/q2_maqola2.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Natural Language Processing for Uzbek Language: Challenges and Progress</span>
+            <span class="t t-ru">Обработка естественного языка для узбекского языка: проблемы и прогресс</span>
+          </a>
+          <div class="article-authors">Mirzayev S., Karimov A.</div>
+          <div class="article-pages">pp. 21–40 · </div>
+          <div class="article-tags">
+            <span class="tag">NLP</span><span class="tag">AI</span><span class="tag">Linguistics</span>
+          </div>
+          <a href="maqola2026/q2_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">03</span>
+        <div>
+          <a href="maqola2026/q2_maqola3.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Corrosion Behavior of Stainless Steel in High-Salinity Environments</span>
+            <span class="t t-ru">Коррозионное поведение нержавеющей стали в высокосолёных средах</span>
+          </a>
+          <div class="article-authors">Smirnova E., Toshmatov B.</div>
+          <div class="article-pages">pp. 41–57 · </div>
+          <div class="article-tags">
+            <span class="tag">Materials</span><span class="tag">Chemistry</span>
+          </div>
+          <a href="maqola2026/q2_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">04</span>
+        <div>
+          <a href="maqola2026/q2_maqola4.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Groundwater Quality Assessment in Aral Sea Basin</span>
+            <span class="t t-ru">Оценка качества подземных вод в бассейне Аральского моря</span>
+          </a>
+          <div class="article-authors">Yusupov R., Kovalev D.</div>
+          <div class="article-pages">pp. 58–76 · </div>
+          <div class="article-tags">
+            <span class="tag">Hydrology</span><span class="tag">Environment</span>
+          </div>
+          <a href="maqola2026/q2_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════ ISSUE Q1 ══════════════════ -->
+<div class="issue-panel" id="panel-q1">
+  <div class="articles-wrap">
+    <div class="issue-meta-bar">
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Volume / Issue</span><span class="t t-ru">Том / Выпуск</span></strong>
+        <span class="t t-en">Vol. 13, No. 1</span><span class="t t-ru">Том 13, № 1</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Period</span><span class="t t-ru">Период</span></strong>
+        <span class="t t-en">January – March 2026</span><span class="t t-ru">Январь – Март 2026</span>
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Articles</span><span class="t t-ru">Статей</span></strong>
+        16
+      </div>
+      <div class="issue-meta-item">
+        <strong><span class="t t-en">Published</span><span class="t t-ru">Опубликовано</span></strong>
+        01.03.2026
+      </div>
+    </div>
+
+    <div class="section-eyebrow">
+      <span class="t t-en">Articles — Vol. 13, No. 1</span>
+      <span class="t t-ru">Статьи — Том 13, № 1</span>
+    </div>
+
+    <ul class="article-list">
+      <li class="article-item">
+        <span class="article-num">01</span>
+        <div>
+          <a href="maqola2026/q1_maqola1.pdf" target="_blank" class="article-title">
+            <span class="t t-en">IoT-Based Real-Time Monitoring System for Agricultural Greenhouses</span>
+            <span class="t t-ru">Система мониторинга теплиц в режиме реального времени на основе IoT</span>
+          </a>
+          <div class="article-authors">Rahimov A., Zhang L.</div>
+          <div class="article-pages">pp. 1–17 · </div>
+          <div class="article-tags">
+            <span class="tag">IoT</span><span class="tag">Agriculture</span>
+          </div>
+          <a href="maqola2026/q1_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">02</span>
+        <div>
+          <a href="maqola2026/q1_maqola2.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Numerical Simulation of Turbulent Flow in Pipe Networks</span>
+            <span class="t t-ru">Численное моделирование турбулентного течения в трубопроводных сетях</span>
+          </a>
+          <div class="article-authors">Tursunov A., Volkov D., Müller H.</div>
+          <div class="article-pages">pp. 18–36 · </div>
+          <div class="article-tags">
+            <span class="tag">Fluid Dynamics</span><span class="tag">Simulation</span>
+          </div>
+          <a href="maqola2026/q1_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">03</span>
+        <div>
+          <a href="maqola2026/q1_maqola3.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Synthesis and Characterization of ZnO Nanoparticles for Antibacterial Use</span>
+            <span class="t t-ru">Синтез и характеристика наночастиц ZnO для антибактериального применения</span>
+          </a>
+          <div class="article-authors">Rashidova M., Petrov I.</div>
+          <div class="article-pages">pp. 37–53 · </div>
+          <div class="article-tags">
+            <span class="tag">Nanotechnology</span><span class="tag">Chemistry</span>
+          </div>
+          <a href="maqola2026/q1_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+      <li class="article-item">
+        <span class="article-num">04</span>
+        <div>
+          <a href="maqola2026/q1_maqola4.pdf" target="_blank" class="article-title">
+            <span class="t t-en">Cybersecurity Threats in Smart Infrastructure: Risk Assessment Framework</span>
+            <span class="t t-ru">Угрозы кибербезопасности в умной инфраструктуре: система оценки рисков</span>
+          </a>
+          <div class="article-authors">Mirzayev S., Torres M.</div>
+          <div class="article-pages">pp. 54–72 · </div>
+          <div class="article-tags">
+            <span class="tag">Cybersecurity</span><span class="tag">IoT</span>
+          </div>
+          <a href="maqola2026/q1_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2025 Nexus International Journal · ISSN 3028-1261</p>
+    <div class="footer-links">
+      <a href="index.html"><span class="t t-en">Home</span><span class="t t-ru">Главная</span></a>
+      <a href="index.html"><span class="t t-en">Submit</span><span class="t t-ru">Подать статью</span></a>
+      <a href="index.html"><span class="t t-en">Contact</span><span class="t t-ru">Контакты</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.className = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+  });
+  localStorage.setItem('lang', lang);
+}
+
+function showIssue(quarter) {
+  document.querySelectorAll('.issue-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.issue-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + quarter).classList.add('active');
+  event.target.closest('.issue-tab').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Init language
+(function() {
+  const lang = localStorage.getItem('lang') || 'en';
+  setLang(lang);
+})();
+</script>
+</body>
+</html>
