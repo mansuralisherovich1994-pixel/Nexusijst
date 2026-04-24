@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editorial Board — Nexus International Journal of Science and Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f1f3d; --deep-blue:#1a3366; --gold:#c8963e; --gold-light:#e8b86d;
+  --cream:#f7f3ec; --warm-white:#fdfaf5; --text:#1c1c1c; --text-muted:#5a5a6e;
+  --border:#d9cfc0; --accent:#8b1a1a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Source Serif 4',Georgia,serif; background:var(--warm-white); color:var(--text); font-size:16px; line-height:1.7; }
+
+/* ── LANG SYSTEM ── */
+.t { display:none !important; }
+.en span.t-en { display:inline !important; }
+.ru span.t-ru { display:inline !important; }
+.en .t-en { display:revert !important; }
+.ru .t-ru { display:revert !important; }
+span.t { display:none !important; }
+
+/* ── TOPBAR ── */
+.topbar { background:var(--navy); color:rgba(255,255,255,.7); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; display:flex; justify-content:space-between; align-items:center; padding:8px 48px; }
+.topbar a { color:rgba(255,255,255,.55); text-decoration:none; margin-left:16px; cursor:pointer; }
+.topbar a:hover { color:var(--gold-light); }
+.lang-switcher { display:flex; gap:4px; align-items:center; }
+.lang-btn { background:transparent; border:1px solid rgba(255,255,255,.25); color:rgba(255,255,255,.6); font-family:'DM Mono',monospace; font-size:11px; padding:3px 10px; cursor:pointer; border-radius:2px; transition:all .2s; }
+.lang-btn.active, .lang-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--navy); }
+
+/* ── HEADER ── */
+header { background:var(--navy); padding:24px 48px; position:relative; overflow:hidden; }
+header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; }
+.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; }
+.journal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; line-height:1.2; flex:1; }
+.journal-title span { font-size:13px; font-weight:400; color:rgba(255,255,255,.5); display:block; margin-top:3px; font-family:'DM Mono',monospace; }
+
+/* ── NAV ── */
+nav { background:var(--deep-blue); border-bottom:1px solid rgba(255,255,255,.07); position:sticky; top:0; z-index:100; }
+.nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; padding:0 48px; flex-wrap:wrap; }
+.nav-inner a { color:rgba(255,255,255,.75); text-decoration:none; font-size:13px; padding:14px 16px; display:block; border-bottom:3px solid transparent; transition:all .2s; font-family:'Source Serif 4',serif; cursor:pointer; }
+.nav-inner a:hover { color:#fff; border-bottom-color:var(--gold); }
+.nav-inner a.active { color:#fff; border-bottom-color:var(--gold); }
+
+/* ── PAGE HERO ── */
+.page-hero { background:var(--navy); padding:48px 48px 40px; position:relative; }
+.page-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
+.page-hero-inner { max-width:1200px; margin:0 auto; }
+.breadcrumb { font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,.4); margin-bottom:14px; }
+.breadcrumb a { color:rgba(200,150,62,.7); text-decoration:none; }
+.breadcrumb a:hover { color:var(--gold); }
+.section-eyebrow { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.section-eyebrow::before { content:''; display:inline-block; width:24px; height:1.5px; background:var(--gold); }
+.page-hero h1 { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; color:#fff; margin-bottom:10px; }
+.page-hero p { color:rgba(255,255,255,.6); font-size:15px; max-width:660px; }
+
+/* ── MAIN BODY ── */
+.page-body { max-width:1200px; margin:0 auto; padding:64px 48px; }
+
+/* ── SECTION DIVIDER ── */
+.section-head { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:10px; margin-bottom:28px; display:flex; align-items:center; gap:12px; }
+.section-head small { font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:.12em; text-transform:uppercase; font-weight:400; }
+
+/* ── EDITOR-IN-CHIEF CARD ── */
+.chief-card { background:var(--cream); border:1px solid var(--border); border-left:4px solid var(--gold); padding:36px; margin-bottom:56px; display:flex; gap:32px; align-items:flex-start; }
+.chief-avatar { width:96px; height:96px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:34px; color:var(--gold); font-weight:700; flex-shrink:0; border:3px solid var(--gold); }
+.chief-info { flex:1; }
+.chief-role { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--gold); letter-spacing:.18em; text-transform:uppercase; margin-bottom:6px; }
+.chief-name { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.chief-affil { font-size:14px; color:var(--text-muted); margin-bottom:14px; }
+.chief-bio { font-size:14px; color:var(--text-muted); line-height:1.75; max-width:660px; }
+.chief-tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+.expert-tag { font-family:'DM Mono',monospace; font-size:10px; color:var(--deep-blue); border:1px solid var(--deep-blue); padding:2px 9px; border-radius:2px; opacity:.75; }
+
+/* ── BOARD GRID ── */
+.board-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:56px; }
+.board-card { background:#fff; border:1px solid var(--border); padding:24px; display:flex; gap:16px; align-items:flex-start; transition:border-color .2s, box-shadow .2s; }
+.board-card:hover { border-color:var(--gold); box-shadow:0 4px 16px rgba(15,31,61,.08); }
+.avatar { width:54px; height:54px; border-radius:50%; background:var(--deep-blue); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:20px; color:var(--gold); font-weight:700; flex-shrink:0; }
+.board-info { flex:1; min-width:0; }
+.board-role { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--gold); letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; }
+.board-name { font-family:'Playfair Display',serif; font-size:15px; font-weight:600; color:var(--navy); margin-bottom:3px; }
+.board-affil { font-size:12.5px; color:var(--text-muted); line-height:1.45; margin-bottom:8px; }
+.board-field { font-family:'DM Mono',monospace; font-size:10px; color:var(--accent); letter-spacing:.06em; }
+
+/* ── REVIEWER TABLE ── */
+.reviewer-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0; border:1px solid var(--border); margin-bottom:48px; }
+.reviewer-item { padding:16px 20px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); display:flex; gap:14px; align-items:center; }
+.reviewer-item:nth-child(even) { border-right:none; }
+.reviewer-item:nth-last-child(-n+2) { border-bottom:none; }
+.rev-avatar { width:38px; height:38px; border-radius:50%; background:var(--cream); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:14px; color:var(--navy); font-weight:700; flex-shrink:0; }
+.rev-name { font-family:'Playfair Display',serif; font-size:14px; font-weight:600; color:var(--navy); margin-bottom:1px; }
+.rev-affil { font-size:12px; color:var(--text-muted); }
+
+/* ── STATS BAR ── */
+.stats-bar { background:var(--navy); margin-bottom:56px; }
+.stats-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.1); }
+.stat-item { background:var(--navy); padding:28px; text-align:center; }
+.stat-num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold); line-height:1; margin-bottom:6px; }
+.stat-label { font-size:12px; color:rgba(255,255,255,.5); letter-spacing:.05em; }
+
+/* ── FOOTER ── */
+footer { background:#080f1e; color:rgba(255,255,255,.5); padding:48px 48px 28px; }
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+footer h4 { font-family:'Playfair Display',serif; font-size:13px; color:rgba(255,255,255,.8); margin-bottom:14px; }
+footer p { font-size:12.5px; line-height:1.7; }
+footer ul { list-style:none; }
+footer ul li { margin-bottom:8px; }
+footer ul li a { font-size:12.5px; color:rgba(255,255,255,.45); text-decoration:none; cursor:pointer; transition:color .2s; }
+footer ul li a:hover { color:var(--gold-light); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:20px; display:flex; justify-content:space-between; font-size:11.5px; }
+
+@media (max-width:900px) {
+  .topbar, header, .nav-inner, .page-hero, .page-body, footer { padding-left:20px !important; padding-right:20px !important; }
+  .board-grid { grid-template-columns:1fr; }
+  .reviewer-grid { grid-template-columns:1fr; }
+  .reviewer-item { border-right:none !important; }
+  .reviewer-item:nth-last-child(-n+2) { border-bottom:1px solid var(--border); }
+  .reviewer-item:last-child { border-bottom:none; }
+  .stats-inner { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .chief-card { flex-direction:column; gap:20px; }
+}
+</style>
+</head>
+<body class="en">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>
+    <span class="t t-en">Peer-reviewed open-access scientific journal</span>
+    <span class="t t-ru">Рецензируемый научный журнал открытого доступа</span>
+  </span>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <span>
+      <a href="index.html">
+        <span class="t t-en">Home</span><span class="t t-ru">Главная</span>
+      </a>
+      <a href="index.html#contact">
+        <span class="t t-en">Contact</span><span class="t t-ru">Контакты</span>
+      </a>
+      <a href="archive-2026.html">
+        <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+      </a>
+    </span>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo-img" alt="Nexus Journal Logo">
+    <div class="journal-title">
+      Nexus International Journal of Science and Technology
+      <span>
+        <span class="t t-en">ISSN 3028-1261 · Est. 2023 · Open Access</span>
+        <span class="t t-ru">ISSN 3028-1261 · Осн. 2023 · Открытый доступ</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">
+      <span class="t t-en">Home</span><span class="t t-ru">Главная</span>
+    </a>
+    <a href="index.html" onclick="sessionStorage.setItem('goPage','current')">
+      <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
+    </a>
+    <a href="archive-2026.html">
+      <span class="t t-en">Archive</span><span class="t t-ru">Архив</span>
+    </a>
+    <a href="index.html" onclick="sessionStorage.setItem('goPage','submit')">
+      <span class="t t-en">Submit</span><span class="t t-ru">Подать статью</span>
+    </a>
+    <a href="index.html" onclick="sessionStorage.setItem('goPage','authors')">
+      <span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span>
+    </a>
+    <a href="editorial-board.html" class="active">
+      <span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span>
+    </a>
+    <a href="index.html" onclick="sessionStorage.setItem('goPage','indexing')">
+      <span class="t t-en">Indexing</span><span class="t t-ru">Индексация</span>
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">
+        <span class="t t-en">Home</span><span class="t t-ru">Главная</span>
+      </a>
+      <span style="margin:0 8px;opacity:.4;">/</span>
+      <span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span>
+    </div>
+    <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+      <span class="t t-en">Editorial Board</span><span class="t t-ru">Редакционная коллегия</span>
+    </div>
+    <h1>
+      <span class="t t-en">Meet Our Editors</span>
+      <span class="t t-ru">Наша редколлегия</span>
+    </h1>
+    <p>
+      <span class="t t-en">Our international editorial board comprises leading scientists and researchers from around the world, ensuring the highest standards of peer review and academic integrity.</span>
+      <span class="t t-ru">Международная редколлегия объединяет ведущих учёных и исследователей со всего мира, обеспечивая высочайшие стандарты рецензирования и академической честности.</span>
+    </p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">26</div>
+      <div class="stat-label"><span class="t t-en">Board Members</span><span class="t t-ru">Членов редколлегии</span></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">18</div>
+      <div class="stat-label"><span class="t t-en">Countries</span><span class="t t-ru">Стран</span></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3 wk</div>
+      <div class="stat-label"><span class="t t-en">Avg. Review Time</span><span class="t t-ru">Ср. время рецензии</span></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2×</div>
+      <div class="stat-label"><span class="t t-en">Double-blind Review</span><span class="t t-ru">Двойное слепое рецензирование</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN BODY -->
+<div class="page-body">
+
+  <!-- ── EDITOR-IN-CHIEF ── -->
+  <div class="section-head">
+    <span class="t t-en">Editor-in-Chief</span>
+    <span class="t t-ru">Главный редактор</span>
+  </div>
+
+  <div class="chief-card">
+    <div class="chief-avatar">N</div>
+    <div class="chief-info">
+      <div class="chief-role">
+        <span class="t t-en">Editor-in-Chief</span>
+        <span class="t t-ru">Главный редактор</span>
+      </div>
+      <div class="chief-name">Prof. Normatov Ibroximali Xolmamatovich</div>
+      <div class="chief-affil">
+        <span class="t t-en">National University of Uzbekistan, Tashkent, Uzbekistan</span>
+        <span class="t t-ru">Национальный университет Узбекистана, Ташкент, Узбекистан</span>
+      </div>
+      <p class="chief-bio">
+        <span class="t t-en">Prof. Normatov Ibroximali Xolmamatovich is a Professor at the National University of Uzbekistan. He is an experienced researcher and academic leader who has made significant contributions to science and higher education in Uzbekistan. He holds editorial responsibilities and actively participates in international scientific cooperation.</span>
+        <span class="t t-ru">Проф. Норматов Иброхималй Холмаматович — профессор Национального университета Узбекистана. Опытный исследователь и академический руководитель, внёсший значительный вклад в науку и высшее образование Узбекистана. Выполняет редакторские обязанности и активно участвует в международном научном сотрудничестве.</span>
+      </p>
+      <div class="chief-tags">
+        <span class="expert-tag">National University of Uzbekistan</span>
+        <span class="expert-tag">Professor</span>
+        <span class="expert-tag">Academic Research</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ASSOCIATE EDITORS ── -->
+  <div class="section-head">
+    <span class="t t-en">Associate Editors</span>
+    <span class="t t-ru">Ответственные редакторы</span>
+    <small>
+      <span class="t t-en">8 members</span>
+      <span class="t t-ru">8 членов</span>
+    </small>
+  </div>
+
+  <div class="board-grid">
+    <div class="board-card">
+      <div class="avatar">E</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Deputy Editor</span><span class="t t-ru">Заместитель редактора</span></div>
+        <div class="board-name">Dr. E. Smirnova</div>
+        <div class="board-affil">
+          <span class="t t-en">Institute of Materials Science, Moscow, Russia</span>
+          <span class="t t-ru">Институт материаловедения, Москва, Россия</span>
+        </div>
+        <div class="board-field">Materials Science · Nanotechnology</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">R</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Associate Editor</span><span class="t t-ru">Ответственный редактор</span></div>
+        <div class="board-name">Prof. R. Yusupov</div>
+        <div class="board-affil">
+          <span class="t t-en">Technical University of Samarkand, Uzbekistan</span>
+          <span class="t t-ru">Технический университет Самарканда, Узбекистан</span>
+        </div>
+        <div class="board-field">Civil Engineering · Hydrology</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">L</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">International Editor</span><span class="t t-ru">Международный редактор</span></div>
+        <div class="board-name">Prof. L. Zhang</div>
+        <div class="board-affil">
+          <span class="t t-en">Tsinghua University, Beijing, China</span>
+          <span class="t t-ru">Университет Цинхуа, Пекин, Китай</span>
+        </div>
+        <div class="board-field">AI · Machine Learning · Data Science</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">M</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Section Editor — Computer Science</span><span class="t t-ru">Редактор раздела — Информатика</span></div>
+        <div class="board-name">Dr. M. Torres</div>
+        <div class="board-affil">
+          <span class="t t-en">Universidad Politécnica, Madrid, Spain</span>
+          <span class="t t-ru">Политехнический университет, Мадрид, Испания</span>
+        </div>
+        <div class="board-field">Computer Science · Cryptography</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">K</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Section Editor — Environment</span><span class="t t-ru">Редактор раздела — Экология</span></div>
+        <div class="board-name">Prof. K. Hashimoto</div>
+        <div class="board-affil">
+          <span class="t t-en">Kyoto University, Kyoto, Japan</span>
+          <span class="t t-ru">Университет Киото, Киото, Япония</span>
+        </div>
+        <div class="board-field">Environmental Science · Climate</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">N</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Section Editor — Engineering</span><span class="t t-ru">Редактор раздела — Инженерия</span></div>
+        <div class="board-name">Prof. N. Abdullaev</div>
+        <div class="board-affil">
+          <span class="t t-en">Tashkent State Technical University, Uzbekistan</span>
+          <span class="t t-ru">Ташкентский государственный технический университет, Узбекистан</span>
+        </div>
+        <div class="board-field">Mechanical Engineering · Energy Systems</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">B</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Associate Editor</span><span class="t t-ru">Ответственный редактор</span></div>
+        <div class="board-name">Berdimurodov Mansur Alisherovich, PhD</div>
+        <div class="board-affil">
+          <span class="t t-en">International Islamic Academy of Uzbekistan, Acting Associate Professor</span>
+          <span class="t t-ru">Международная исламская академия Узбекистана, и.о. доцента</span>
+        </div>
+        <div class="board-field">Islamic Studies · Information Security</div>
+      </div>
+    </div>
+    <div class="board-card">
+      <div class="avatar">I</div>
+      <div class="board-info">
+        <div class="board-role"><span class="t t-en">Associate Editor</span><span class="t t-ru">Ответственный редактор</span></div>
+        <div class="board-name">Ismoilov Muhriddin, PhD</div>
+        <div class="board-affil">
+          <span class="t t-en">International Islamic Academy of Uzbekistan</span>
+          <span class="t t-ru">Международная исламская академия Узбекистана</span>
+        </div>
+        <div class="board-field">Islamic Studies · Academic Research</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INTERNATIONAL ADVISORY BOARD ── -->
+  <div class="section-head">
+    <span class="t t-en">International Advisory Board</span>
+    <span class="t t-ru">Международный консультативный совет</span>
+    <small>
+      <span class="t t-en">12 members</span>
+      <span class="t t-ru">12 членов</span>
+    </small>
+  </div>
+
+  <div class="reviewer-grid">
+    <div class="reviewer-item">
+      <div class="rev-avatar">I</div>
+      <div>
+        <div class="rev-name">Prof. I. Petrov</div>
+        <div class="rev-affil">
+          <span class="t t-en">St. Petersburg Polytechnic University, Russia · Industrial AI</span>
+          <span class="t t-ru">Санкт-Петербургский политехнический университет, Россия · Промышленный ИИ</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">W</div>
+      <div>
+        <div class="rev-name">Prof. W. Chen</div>
+        <div class="rev-affil">
+          <span class="t t-en">National Taiwan University, Taiwan · Quantum Computing</span>
+          <span class="t t-ru">Национальный университет Тайваня, Тайвань · Квантовые вычисления</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">T</div>
+      <div>
+        <div class="rev-name">Dr. T. Ivanova</div>
+        <div class="rev-affil">
+          <span class="t t-en">Lomonosov Moscow State University, Russia · Biomedical Engineering</span>
+          <span class="t t-ru">МГУ им. Ломоносова, Россия · Биомедицинская инженерия</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">S</div>
+      <div>
+        <div class="rev-name">Dr. S. Mirzayev</div>
+        <div class="rev-affil">
+          <span class="t t-en">Westminster International University, Tashkent · Cryptography</span>
+          <span class="t t-ru">Вестминстерский международный университет, Ташкент · Криптография</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">D</div>
+      <div>
+        <div class="rev-name">Prof. D. Kovalev</div>
+        <div class="rev-affil">
+          <span class="t t-en">Lomonosov Moscow State University, Russia · Environmental Modelling</span>
+          <span class="t t-ru">МГУ им. Ломоносова, Россия · Экологическое моделирование</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">A</div>
+      <div>
+        <div class="rev-name">Dr. A. Rahimov</div>
+        <div class="rev-affil">
+          <span class="t t-en">Samarkand State University, Uzbekistan · Signal Processing</span>
+          <span class="t t-ru">Самаркандский государственный университет, Узбекистан · Обработка сигналов</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">B</div>
+      <div>
+        <div class="rev-name">Prof. B. Toshmatov</div>
+        <div class="rev-affil">
+          <span class="t t-en">Turin Polytechnic University, Tashkent · Materials Science</span>
+          <span class="t t-ru">Туринский политехнический университет, Ташкент · Материаловедение</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">H</div>
+      <div>
+        <div class="rev-name">Prof. H. Müller</div>
+        <div class="rev-affil">
+          <span class="t t-en">Technical University of Berlin, Germany · Renewable Energy</span>
+          <span class="t t-ru">Технический университет Берлина, Германия · Возобновляемая энергия</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">F</div>
+      <div>
+        <div class="rev-name">Dr. F. Laurent</div>
+        <div class="rev-affil">
+          <span class="t t-en">Sorbonne Université, Paris, France · Applied Mathematics</span>
+          <span class="t t-ru">Университет Сорбонна, Париж, Франция · Прикладная математика</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">O</div>
+      <div>
+        <div class="rev-name">Prof. O. Adeyemi</div>
+        <div class="rev-affil">
+          <span class="t t-en">University of Lagos, Nigeria · Sustainable Development</span>
+          <span class="t t-ru">Университет Лагоса, Нигерия · Устойчивое развитие</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">P</div>
+      <div>
+        <div class="rev-name">Dr. P. Sharma</div>
+        <div class="rev-affil">
+          <span class="t t-en">Indian Institute of Technology Delhi, India · Biotechnology</span>
+          <span class="t t-ru">Индийский технологический институт, Дели, Индия · Биотехнологии</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviewer-item">
+      <div class="rev-avatar">G</div>
+      <div>
+        <div class="rev-name">Prof. G. Vasquez</div>
+        <div class="rev-affil">
+          <span class="t t-en">Universidad Nacional Autónoma de México · Civil Engineering</span>
+          <span class="t t-ru">Национальный автономный университет Мексики · Гражданское строительство</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PEER REVIEW POLICY ── -->
+  <div class="section-head">
+    <span class="t t-en">Peer Review Policy</span>
+    <span class="t t-ru">Политика рецензирования</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;">
+    <div style="background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;">
+      <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px;">
+        <span class="t t-en">Double-blind Review Process</span>
+        <span class="t t-ru">Двойное слепое рецензирование</span>
+      </h4>
+      <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;">
+        <span class="t t-en">All submitted manuscripts undergo a rigorous double-blind peer review process where neither the authors nor the reviewers know each other's identities. Each manuscript is reviewed by at least two independent experts in the relevant field.</span>
+        <span class="t t-ru">Все представленные рукописи проходят строгое двойное слепое рецензирование, при котором ни авторы, ни рецензенты не знают личностей друг друга. Каждая рукопись рецензируется не менее чем двумя независимыми экспертами в соответствующей области.</span>
+      </p>
+    </div>
+    <div style="background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--accent);padding:24px;">
+      <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px;">
+        <span class="t t-en">Review Timeline</span>
+        <span class="t t-ru">Сроки рецензирования</span>
+      </h4>
+      <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;">
+        <span class="t t-en">Initial screening: 5 business days · Peer review: 3 weeks · Revision review: 2 weeks · Final decision communicated to the authors via email. Authors may track their submission status online.</span>
+        <span class="t t-ru">Первичная проверка: 5 рабочих дней · Рецензирование: 3 недели · Проверка доработки: 2 недели · Окончательное решение направляется авторам по электронной почте. Авторы могут отслеживать статус рукописи онлайн.</span>
+      </p>
+    </div>
+  </div>
+
+  <div style="background:var(--navy);color:#fff;padding:32px 36px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;">
+        <span class="t t-en">Join Our Reviewer Pool</span>
+        <span class="t t-ru">Стать рецензентом</span>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:6px;">
+        <span class="t t-en">Interested in Reviewing for Nexus?</span>
+        <span class="t t-ru">Хотите рецензировать для Nexus?</span>
+      </div>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.6);max-width:520px;">
+        <span class="t t-en">We welcome qualified researchers to join our peer reviewer database. Send your CV and areas of expertise to our editorial office.</span>
+        <span class="t t-ru">Мы приглашаем квалифицированных исследователей в нашу базу рецензентов. Отправьте ваше CV и области экспертизы в редакцию.</span>
+      </p>
+    </div>
+    <a href="mailto:editorial@nexus-journal.de" style="display:inline-block;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;text-decoration:none;flex-shrink:0;">
+      <span class="t t-en">Contact Us →</span>
+      <span class="t t-ru">Написать нам →</span>
+    </a>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>Nexus International Journal of Science and Technology</h4>
+        <p>
+          <span class="t t-en">A peer-reviewed, open-access scientific journal publishing high-quality research in applied sciences and engineering since 2023.</span>
+          <span class="t t-ru">Рецензируемый научный журнал открытого доступа, публикующий высококачественные исследования в области прикладных наук и инженерии с 2023 года.</span>
+        </p>
+      </div>
+      <div>
+        <h4><span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="t t-en">Submit Paper</span><span class="t t-ru">Подать статью</span></a></li>
+          <li><a href="index.html"><span class="t t-en">Author Guidelines</span><span class="t t-ru">Рекомендации</span></a></li>
+          <li><a href="index.html"><span class="t t-en">Publication Fees</span><span class="t t-ru">Стоимость публикации</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="t t-en">Quick Links</span><span class="t t-ru">Быстрые ссылки</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span></a></li>
+          <li><a href="archive-2026.html"><span class="t t-en">All Issues</span><span class="t t-ru">Все выпуски</span></a></li>
+          <li><a href="editorial-board.html"><span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span></a></li>
+          <li><a href="index.html"><span class="t t-en">Indexing</span><span class="t t-ru">Индексация</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="t t-en">Contact</span><span class="t t-ru">Контакты</span></h4>
+        <p>editorial@nexus-journal.de<br>
+          <span class="t t-en">Musterstraße 12, 10115 Berlin, Germany</span>
+          <span class="t t-ru">Musterstraße 12, 10115 Берлин, Германия</span><br>
+          +49 30 1234567
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nexus International Journal of Science and Technology. <span class="t t-en">All rights reserved.</span><span class="t t-ru">Все права защищены.</span></span>
+      <span>ISSN 3028-1261 (Online)</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.className = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+  });
+  localStorage.setItem('lang', lang);
+}
+(function() {
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+})();
+</script>
+</body>
+</html>
