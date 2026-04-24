@@ -78,6 +78,8 @@ nav { background:var(--deep-blue); border-bottom:1px solid rgba(255,255,255,.07)
 .article-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:5px; }
 .tag { font-family:'DM Mono',monospace; font-size:10px; color:var(--deep-blue); border:1px solid var(--deep-blue); padding:1px 7px; border-radius:2px; opacity:.7; }
 .pdf-tag { color:var(--accent)!important; border-color:var(--accent)!important; opacity:1!important; }
+.cert-tag { color:#2a6e2a!important; border-color:#2a6e2a!important; opacity:1!important; text-decoration:none; }
+.cert-tag:hover { background:#2a6e2a; color:#fff!important; }
 
 /* ── STATS ── */
 .stats-bar { background:var(--navy); color:#fff; }
@@ -260,14 +262,14 @@ footer ul li a:hover { color:var(--gold-light); }
         Nexus International Journal<br>of Science and Technology
       </div>
       <div class="journal-subtitle">
-        <span class="t t-en">Published quarterly · Open Access · DOI indexed</span>
-        <span class="t t-ru">Выходит ежеквартально · Открытый доступ · Индексация DOI</span>
+        <span class="t t-en">Published quarterly · Open Access · <a href="https://enexusijst.uz/" target="_blank" style="color:rgba(255,255,255,.55);text-decoration:underline;">DOI indexed</a></span>
+        <span class="t t-ru">Выходит ежеквартально · Открытый доступ · <a href="https://enexusijst.uz/" target="_blank" style="color:rgba(255,255,255,.55);text-decoration:underline;">Индексация DOI</a></span>
       </div>
     </div>
     <div class="header-meta">
       <div>
         <span class="t t-en">Vol. 15, No. 2 · 2026</span>
-        <span class="t t-ru">Том 15, № 2 · 2025</span>
+        <span class="t t-ru">Том 15, № 2 · 2026</span>
       </div>
       <div>
         <span class="t t-en">Impact Factor: 2.14</span>
@@ -298,7 +300,7 @@ footer ul li a:hover { color:var(--gold-light); }
     <a onclick="showPage('authors')" id="nav-authors">
       <span class="t t-en">For Authors</span><span class="t t-ru">Авторам</span>
     </a>
-    <a onclick="showPage('editorial')" id="nav-editorial">
+    <a href="editorial-board.html" id="nav-editorial">
       <span class="t t-en">Editorial Board</span><span class="t t-ru">Редколлегия</span>
     </a>
     <a onclick="showPage('indexing')" id="nav-indexing">
@@ -391,15 +393,15 @@ footer ul li a:hover { color:var(--gold-light); }
   <section class="stats-bar">
     <div class="stats-inner">
       <div class="stat-item">
-        <div class="stat-num">14</div>
+        <div class="stat-num">4</div>
         <div class="stat-label"><span class="t t-en">Years Published</span><span class="t t-ru">Лет издания</span></div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">840+</div>
+        <div class="stat-num">254+</div>
         <div class="stat-label"><span class="t t-en">Articles Published</span><span class="t t-ru">Опубликованных статей</span></div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">62</div>
+        <div class="stat-num">38</div>
         <div class="stat-label"><span class="t t-en">Countries Represented</span><span class="t t-ru">Стран-участниц</span></div>
       </div>
       <div class="stat-item">
@@ -502,7 +504,7 @@ footer ul li a:hover { color:var(--gold-light); }
       <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
         <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
       </div>
-      <h1><span class="t t-en">Volume 15, Issue 2 · April–June 2026</span><span class="t t-ru">Том 15, Выпуск 2 · Апрель–Июнь 2025</span></h1>
+      <h1><span class="t t-en">Volume 15, Issue 2 · April–June 2026</span><span class="t t-ru">Том 15, Выпуск 2 · Апрель–Июнь 2026</span></h1>
       <p><span class="t t-en">18 original research articles · Published June 1, 2026</span><span class="t t-ru">18 оригинальных статей · Опубликовано 1 июня 2026</span></p>
     </div>
   </div>
@@ -513,15 +515,15 @@ footer ul li a:hover { color:var(--gold-light); }
           
 		  
 		  
-		  <li class="article-item">
+		      <li class="article-item">
             <span class="article-num">01</span>
             <div>
-              <a href="maqola2026/maqola1.pdf" target="_blank" class="article-title">
+              <a href="maqola2026/q2_maqola1.pdf" target="_blank" class="article-title">
                 <span class="t t-en">Deep Learning Approaches for Predictive Maintenance in Industrial Systems</span>
                 <span class="t t-ru">Подходы глубокого обучения для прогнозного обслуживания промышленных систем</span>
               </a>
               <div class="article-authors">Karimov A., Petrov I., Zhang L. — pp. 3–18</div>
-              <div class="article-tags"><span class="tag">AI</span><span class="tag">ML</span><span class="tag">Industry 4.0</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">AI</span><span class="tag">ML</span><span class="tag">Industry 4.0</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Karimov%20A.%2C%20Petrov%20I.%2C%20Zhang%20L.&title=Deep%20Learning%20Approaches%20for%20Predictive%20Maintenance%20in%20Industrial%20Systems&vol=15&no=2&year=2026&pages=3%E2%80%9318" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>
           </li>
 		  
@@ -534,7 +536,7 @@ footer ul li a:hover { color:var(--gold-light); }
                 <span class="t t-ru">Новые нанокомпозитные материалы для высокотемпературных применений</span>
               </a>
               <div class="article-authors">Toshmatov B., Smirnova E. — pp. 19–34</div>
-              <div class="article-tags"><span class="tag">Materials</span><span class="tag">Nanotechnology</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">Materials</span><span class="tag">Nanotechnology</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Toshmatov%20B.%2C%20Smirnova%20E.&title=Novel%20Nanocomposite%20Materials%20for%20High-Temperature%20Applications&vol=15&no=2&year=2026&pages=19%E2%80%9334" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>
           </li>
           <li class="article-item">
@@ -545,7 +547,7 @@ footer ul li a:hover { color:var(--gold-light); }
                 <span class="t t-ru">Управление водными ресурсами в засушливых регионах</span>
               </a>
               <div class="article-authors">Yusupov R., Kovalev D., Hashimoto K. — pp. 35–52</div>
-              <div class="article-tags"><span class="tag">Hydrology</span><span class="tag">Environment</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">Hydrology</span><span class="tag">Environment</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Yusupov%20R.%2C%20Kovalev%20D.%2C%20Hashimoto%20K.&title=Water%20Resource%20Management%20in%20Arid%20Regions%3A%20Integrated%20Modelling&vol=15&no=2&year=2026&pages=35%E2%80%9352" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>
           </li>
           <li class="article-item">
@@ -556,7 +558,7 @@ footer ul li a:hover { color:var(--gold-light); }
                 <span class="t t-ru">Алгоритмы оптимизации для интеграции возобновляемой энергии</span>
               </a>
               <div class="article-authors">Abdullaev N., Torres M. — pp. 53–71</div>
-              <div class="article-tags"><span class="tag">Energy</span><span class="tag">Optimization</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">Energy</span><span class="tag">Optimization</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Abdullaev%20N.%2C%20Torres%20M.&title=Optimization%20Algorithms%20for%20Renewable%20Energy%20Grid%20Integration&vol=15&no=2&year=2026&pages=53%E2%80%9371" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>
           </li>
           <li class="article-item">
@@ -567,7 +569,7 @@ footer ul li a:hover { color:var(--gold-light); }
                 <span class="t t-ru">Достижения в квантовых вычислениях для криптографических приложений</span>
               </a>
               <div class="article-authors">Mirzayev S., Chen W. — pp. 72–89</div>
-              <div class="article-tags"><span class="tag">Quantum</span><span class="tag">Cryptography</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">Quantum</span><span class="tag">Cryptography</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Mirzayev%20S.%2C%20Chen%20W.&title=Advances%20in%20Quantum%20Computing%20for%20Cryptographic%20Applications&vol=15&no=2&year=2026&pages=72%E2%80%9389" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>
           </li>
           <li class="article-item">
@@ -578,7 +580,7 @@ footer ul li a:hover { color:var(--gold-light); }
                 <span class="t t-ru">Обработка биомедицинских сигналов с помощью свёрточных нейронных сетей</span>
               </a>
               <div class="article-authors">Rahimov A., Ivanova T. — pp. 90–108</div>
-              <div class="article-tags"><span class="tag">Biomedical</span><span class="tag">CNN</span><span class="tag pdf-tag">📄 PDF</span></div>
+              <div class="article-tags"><span class="tag">Biomedical</span><span class="tag">CNN</span><span class="tag pdf-tag">📄 PDF</span><a href="certificate.html?author=Rahimov%20A.%2C%20Ivanova%20T.&title=Biomedical%20Signal%20Processing%20Using%20Convolutional%20Neural%20Networks&vol=15&no=2&year=2026&pages=90%E2%80%93108" target="_blank" class="tag cert-tag">🏅 Certificate</a></div>
             </div>		
           </li>
 					  <li class="article-item">
@@ -588,12 +590,13 @@ footer ul li a:hover { color:var(--gold-light); }
 				  <span class="t t-en">Information Security Challenges in Local Area Networks</span>
 				  <span class="t t-ru">Проблемы информационной безопасности в локальных сетях</span>
 				</a>
-				<div class="article-authors">Berdimurodov M.A. — pp. 19–32</div>
+				<div class="article-authors">Berdimurodov M.A. — pp. 109–122</div>
 				<div class="article-tags">
 				  <span class="tag">Cybersecurity</span>
 				  <span class="tag">LAN</span>
 				  <span class="tag">Network Security</span>
 				  <span class="tag pdf-tag">📄 PDF</span>
+				  <a href="certificate.html?author=Berdimurodov%20M.A.&title=Information%20Security%20Challenges%20in%20Local%20Area%20Networks&vol=15&no=2&year=2026&pages=109%E2%80%93122" target="_blank" class="tag cert-tag">🏅 Certificate</a>
 				</div>
 			  </div>
 			</li>
@@ -607,8 +610,8 @@ footer ul li a:hover { color:var(--gold-light); }
         <div class="info-box">
           <h4><span class="t t-en">Issue Info</span><span class="t t-ru">Информация о выпуске</span></h4>
           <p style="font-family:'DM Mono',monospace;font-size:11px;line-height:2;color:var(--text-muted);">
-            <span class="t t-en">Vol. 14, No. 2 · 2025<br>Articles: 18<br>Pages: 1–214<br>Published: 01.06.2025<br>e-ISSN 3028-1261</span>
-            <span class="t t-ru">Том 14, № 2 · 2025<br>Статей: 18<br>Страниц: 1–214<br>Опубликовано: 01.06.2025<br>e-ISSN 3028-1261</span>
+            <span class="t t-en">Vol. 15, No. 2 · 2026<br>Articles: 18<br>Pages: 1–214<br>Published: 01.06.2026<br>e-ISSN 3028-1261</span>
+            <span class="t t-ru">Том 15, № 2 · 2026<br>Статей: 18<br>Страниц: 1–214<br>Опубликовано: 01.06.2026<br>e-ISSN 3028-1261</span>
           </p>
         </div>
       </div>
@@ -658,8 +661,7 @@ footer ul li a:hover { color:var(--gold-light); }
         </div>
 		-->
 		
-        <div class="archive-issue-card">
-		 <div class="archive-issue-card" onclick="window.location.href='archive-2026.html'" style="cursor:pointer;">
+        <div class="archive-issue-card" onclick="window.location.href='archive-2026.html'" style="cursor:pointer;">
           <div class="vol"><span class="t t-en">Vol. 15, No. 1</span><span class="t t-ru">Том 15, № 1</span></div>
           <h4><span class="t t-en">January – March</span><span class="t t-ru">Январь – Март</span></h4>
           <p>15 <span class="t t-en">articles</span><span class="t t-ru">статей</span></p>
@@ -902,7 +904,7 @@ footer ul li a:hover { color:var(--gold-light); }
         <ul>
           <li><span class="t t-en">Submission fee: Free</span><span class="t t-ru">Подача статьи: бесплатно</span></li>
           <li><span class="t t-en">Review fee: Free</span><span class="t t-ru">Рецензирование: бесплатно</span></li>
-          <li><span class="t t-en">Open Access fee: $150 USD</span><span class="t t-ru">Открытый доступ: $150 USD</span></li>
+          <li><span class="t t-en">Open Access fee: $17 USD</span><span class="t t-ru">Открытый доступ: $17 USD</span></li>
           <li><span class="t t-en">Waiver available for developing countries</span><span class="t t-ru">Льготы для развивающихся стран</span></li>
           <li><span class="t t-en">No hidden charges</span><span class="t t-ru">Никаких скрытых платежей</span></li>
         </ul>
@@ -952,17 +954,17 @@ footer ul li a:hover { color:var(--gold-light); }
   <div class="page-body">
     <!-- Editor in chief -->
     <div style="background:var(--cream);border:1px solid var(--border);padding:32px;margin-bottom:40px;display:flex;gap:28px;align-items:flex-start;">
-      <div style="width:80px;height:80px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:700;flex-shrink:0;">A</div>
+      <div style="width:80px;height:80px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:700;flex-shrink:0;">N</div>
       <div>
         <div class="board-role" style="font-size:11px;"><span class="t t-en">Editor-in-Chief</span><span class="t t-ru">Главный редактор</span></div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:6px;">Prof. A. Karimov</h2>
+        <h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:6px;">Prof. Normatov Ibroximali Xolmamatovich</h2>
         <div style="font-size:14px;color:var(--text-muted);margin-bottom:10px;">
-          <span class="t t-en">National University of Sciences, Tashkent, Uzbekistan</span>
-          <span class="t t-ru">Национальный университет наук, Ташкент, Узбекистан</span>
+          <span class="t t-en">National University of Uzbekistan, Tashkent, Uzbekistan</span>
+          <span class="t t-ru">Национальный университет Узбекистана, Ташкент, Узбекистан</span>
         </div>
         <p style="font-size:13.5px;color:var(--text-muted);max-width:600px;">
-          <span class="t t-en">Prof. Karimov specializes in applied mathematics and computational engineering. He has published over 120 peer-reviewed articles and holds editorial positions at three international journals.</span>
-          <span class="t t-ru">Проф. Каримов специализируется в области прикладной математики и вычислительной инженерии. Автор более 120 рецензируемых статей, член редколлегий трёх международных журналов.</span>
+          <span class="t t-en">Prof. Normatov Ibroximali Xolmamatovich is a Professor at the National University of Uzbekistan. An experienced researcher and academic leader who has made significant contributions to science and higher education in Uzbekistan.</span>
+          <span class="t t-ru">Проф. Норматов Иброхималй Холмаматович — профессор Национального университета Узбекистана. Опытный исследователь и академический руководитель, внёсший значительный вклад в науку и высшее образование Узбекистана.</span>
         </p>
       </div>
     </div>
@@ -1088,6 +1090,48 @@ footer ul li a:hover { color:var(--gold-light); }
 </div>
 
 <!-- ══════════════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow" style="color:rgba(200,150,62,.7);">
+        <span class="t t-en">Contact</span><span class="t t-ru">Контакты</span>
+      </div>
+      <h1><span class="t t-en">Get in Touch</span><span class="t t-ru">Свяжитесь с нами</span></h1>
+      <p><span class="t t-en">Reach out to the editorial office for any inquiries.</span><span class="t t-ru">Обратитесь в редакцию по любым вопросам.</span></p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+      <div>
+        <div class="info-box">
+          <h4><span class="t t-en">Editorial Office</span><span class="t t-ru">Редакция</span></h4>
+          <p style="font-family:'DM Mono',monospace;font-size:12px;line-height:2.2;">
+            <span class="t t-en">Email: editorial@nexus-journal.de<br>Address: Musterstraße 12, 10115 Berlin, Germany<br>Phone: +49 30 1234567</span>
+            <span class="t t-ru">Email: editorial@nexus-journal.de<br>Адрес: Musterstraße 12, 10115 Берлин, Германия<br>Тел.: +49 30 1234567</span>
+          </p>
+        </div>
+        <div class="info-box" style="margin-top:24px;">
+          <h4><span class="t t-en">Submission Inquiries</span><span class="t t-ru">Вопросы по подаче</span></h4>
+          <p><span class="t t-en">For manuscript submission questions, please visit the <a onclick="showPage('submit')" style="color:var(--accent);cursor:pointer;">Submit</a> page or review our <a onclick="showPage('authors')" style="color:var(--accent);cursor:pointer;">Author Guidelines</a>.</span><span class="t t-ru">По вопросам подачи рукописей посетите страницу <a onclick="showPage('submit')" style="color:var(--accent);cursor:pointer;">Подача</a> или ознакомьтесь с <a onclick="showPage('authors')" style="color:var(--accent);cursor:pointer;">Рекомендациями для авторов</a>.</span></p>
+        </div>
+      </div>
+      <div>
+        <div class="authors-card">
+          <h3><span class="t t-en">Office Hours</span><span class="t t-ru">Часы работы</span></h3>
+          <ul>
+            <li><span class="t t-en">Monday – Friday: 09:00 – 17:00 CET</span><span class="t t-ru">Понедельник – Пятница: 09:00 – 17:00 CET</span></li>
+            <li><span class="t t-en">Response time: within 2 business days</span><span class="t t-ru">Время ответа: в течение 2 рабочих дней</span></li>
+            <li><span class="t t-en">Peer review queries: 3–5 business days</span><span class="t t-ru">Запросы по рецензированию: 3–5 рабочих дней</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
      FOOTER (always visible)
 ══════════════════════════════════════════════ -->
 <footer>
@@ -1125,7 +1169,7 @@ footer ul li a:hover { color:var(--gold-light); }
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Nexus International Journal of Science and Technology. <span class="t t-en">All rights reserved.</span><span class="t t-ru">Все права защищены.</span></span>
+      <span>© 2026 Nexus International Journal of Science and Technology. <span class="t t-en">All rights reserved.</span><span class="t t-ru">Все права защищены.</span></span>
       <span>ISSN 3028-1261 (Online)</span>
     </div>
   </div>
