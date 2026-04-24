@@ -88,6 +88,8 @@ nav { background:var(--deep-blue); border-bottom:1px solid rgba(255,255,255,.07)
 .pdf-tag { color:var(--accent)!important; border-color:var(--accent)!important; opacity:1!important; font-weight:500; }
 .pdf-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:6px 14px; text-decoration:none; border-radius:2px; transition:background .2s; }
 .pdf-btn:hover { background:var(--deep-blue); }
+.cert-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; margin-left:8px; background:#1a5c1a; color:#fff; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:6px 14px; text-decoration:none; border-radius:2px; transition:background .2s; }
+.cert-btn:hover { background:#2a7a2a; }
 
 /* ── FOOTER ── */
 footer { background:#080f1e; color:rgba(255,255,255,.5); padding:36px 48px 24px; }
@@ -612,10 +614,52 @@ function showIssue(quarter) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function injectCertButtons() {
+  document.querySelectorAll('.issue-panel').forEach(panel => {
+    let vol = '', no = '', year = '', pubdate = '';
+    panel.querySelectorAll('.issue-meta-item').forEach(item => {
+      const spans = item.querySelectorAll('.t-en');
+      if (!spans.length) return;
+      const txt = spans[spans.length - 1].textContent.trim();
+      const vm = txt.match(/Vol\.\s*(\d+),\s*No\.\s*(\d+)/);
+      if (vm) { vol = vm[1]; no = vm[2]; return; }
+      if (/January|February|March|April|May|June|July|August|September|October|November|December/.test(txt)) {
+        const ym = txt.match(/(\d{4})/); if (ym) year = ym[1]; return;
+      }
+      if (/^\d{2}\.\d{2}\.\d{4}$/.test(txt)) { pubdate = txt; return; }
+      // Published date lives as a plain text node, not inside a span
+      const dm = item.textContent.match(/(\d{2}\.\d{2}\.\d{4})/);
+      if (dm) pubdate = dm[1];
+    });
+    panel.querySelectorAll('.article-item').forEach(item => {
+      if (item.querySelector('.cert-btn')) return;
+      const titleEl   = item.querySelector('.article-title .t-en');
+      const authorsEl = item.querySelector('.article-authors');
+      const pagesEl   = item.querySelector('.article-pages');
+      const pdfBtn    = item.querySelector('.pdf-btn');
+      if (!pdfBtn) return;
+      const title   = titleEl   ? titleEl.textContent.trim() : '';
+      const authors = authorsEl ? authorsEl.textContent.trim() : '';
+      let pages = '';
+      if (pagesEl) { const m = pagesEl.textContent.match(/pp\.\s*([^\s·]+)/); if (m) pages = m[1]; }
+      const url = 'certificate.html?author=' + encodeURIComponent(authors) +
+                  '&title='   + encodeURIComponent(title) +
+                  '&vol='     + vol + '&no=' + no + '&year=' + year +
+                  '&pages='   + encodeURIComponent(pages) +
+                  '&pubdate=' + encodeURIComponent(pubdate);
+      const btn = document.createElement('a');
+      btn.href = url; btn.target = '_blank'; btn.className = 'cert-btn';
+      btn.textContent = '🏅 Certificate';
+      pdfBtn.insertAdjacentElement('afterend', btn);
+    });
+  });
+}
+
 // Init language
 (function() {
   const lang = localStorage.getItem('lang') || 'en';
   setLang(lang);
+  injectCertButtons();
 })();
 </script>
 </body>
