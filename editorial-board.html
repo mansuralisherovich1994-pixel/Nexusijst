@@ -35,7 +35,7 @@ span.t { display:none !important; }
 header { background:var(--navy); padding:24px 48px; position:relative; overflow:hidden; }
 header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
 .header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; }
-.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; }
+.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; border-radius:50%; }
 .journal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; line-height:1.2; flex:1; }
 .journal-title span { font-size:13px; font-weight:400; color:rgba(255,255,255,.5); display:block; margin-top:3px; font-family:'DM Mono',monospace; }
 
@@ -232,7 +232,7 @@ footer ul li a:hover { color:var(--gold-light); }
       <div class="stat-label"><span class="t t-en">Countries</span><span class="t t-ru">Стран</span></div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">3 wk</div>
+      <div class="stat-num">1 wk</div>
       <div class="stat-label"><span class="t t-en">Avg. Review Time</span><span class="t t-ru">Ср. время рецензии</span></div>
     </div>
     <div class="stat-item">
@@ -622,6 +622,7 @@ function setLang(lang) {
   });
   localStorage.setItem('lang', lang);
 }
+
 (function() {
   const savedLang = localStorage.getItem('lang') || 'en';
   setLang(savedLang);

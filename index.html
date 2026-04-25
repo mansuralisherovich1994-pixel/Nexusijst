@@ -36,7 +36,7 @@ span.t { display:none !important; }
 header { background:var(--navy); padding:32px 48px 28px; position:relative; overflow:hidden; }
 header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
 .header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:32px; }
-.logo-img { width:80px; height:80px; object-fit:contain; flex-shrink:0; }
+.logo-img { width:80px; height:80px; object-fit:contain; flex-shrink:0; border-radius:50%; }
 .journal-title-group { flex:1; }
 .journal-abbr { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:4px; }
 .journal-title { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#fff; line-height:1.2; }
@@ -326,8 +326,8 @@ footer ul li a:hover { color:var(--gold-light); }
           <span class="t t-ru">Том 15, Выпуск 2<br><em>Апрель – Июнь 2026</em></span>
         </h1>
         <p class="issue-desc">
-          <span class="t t-en">This issue features 18 original research articles spanning artificial intelligence, materials science, environmental engineering, and applied mathematics.</span>
-          <span class="t t-ru">В этом выпуске представлены 18 оригинальных статей по искусственному интеллекту, материаловедению, экологическому инжинирингу и прикладной математике.</span>
+          <span class="t t-en">Published June 1, 2026</span>
+          <span class="t t-ru">Опубликовано 1 июня 2026</span>
         </p>
         <ul class="article-list">
           <li class="article-item">
@@ -505,7 +505,7 @@ footer ul li a:hover { color:var(--gold-light); }
         <span class="t t-en">Current Issue</span><span class="t t-ru">Текущий выпуск</span>
       </div>
       <h1><span class="t t-en">Volume 15, Issue 2 · April–June 2026</span><span class="t t-ru">Том 15, Выпуск 2 · Апрель–Июнь 2026</span></h1>
-      <p><span class="t t-en">18 original research articles · Published June 1, 2026</span><span class="t t-ru">18 оригинальных статей · Опубликовано 1 июня 2026</span></p>
+      <p><span class="t t-en">Published June 1, 2026</span><span class="t t-ru">Опубликовано 1 июня 2026</span></p>
     </div>
   </div>
   <div class="page-body">
@@ -1046,6 +1046,11 @@ footer ul li a:hover { color:var(--gold-light); }
 	  
     
       <div class="index-card">
+        <div class="index-logo">Zenodo</div>
+        <div class="index-desc"><span class="t t-en">Open-access repository by CERN — DOI assignment and long-term archiving of scientific articles.</span><span class="t t-ru">Репозиторий открытого доступа ЦЕРН — присвоение DOI и долгосрочное архивирование статей.</span></div>
+        <div class="index-badge"><span class="t t-en">ARCHIVED</span><span class="t t-ru">АРХИВИРУЕТСЯ</span></div>
+      </div>
+      <div class="index-card">
         <div class="index-logo">DOAJ</div>
         <div class="index-desc"><span class="t t-en">Directory of Open Access Journals — quality open access research.</span><span class="t t-ru">Каталог журналов открытого доступа — качественные исследования.</span></div>
         <div class="index-badge"><span class="t t-en">INDEXED</span><span class="t t-ru">ИНДЕКСИРУЕТСЯ</span></div>
@@ -1081,7 +1086,7 @@ footer ul li a:hover { color:var(--gold-light); }
           <div style="font-size:12px;color:var(--text-muted);">CiteScore</div>
         </div>
         <div style="text-align:center;">
-          <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;">3 wk</div>
+          <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;">1 wk</div>
           <div style="font-size:12px;color:var(--text-muted);"><span class="t t-en">Avg. Review Time</span><span class="t t-ru">Ср. время рецензии</span></div>
         </div>
       </div>

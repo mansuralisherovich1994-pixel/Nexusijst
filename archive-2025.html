@@ -35,7 +35,7 @@ span.t { display:none !important; }
 header { background:var(--navy); padding:24px 48px; position:relative; overflow:hidden; }
 header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold),var(--deep-blue)); }
 .header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; }
-.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; }
+.logo-img { width:64px; height:64px; object-fit:contain; flex-shrink:0; border-radius:50%; }
 .journal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; line-height:1.2; flex:1; }
 .journal-title span { font-size:13px; font-weight:400; color:rgba(255,255,255,.5); display:block; margin-top:3px; font-family:'DM Mono',monospace; }
 
@@ -177,8 +177,8 @@ footer p { font-size:12px; }
       <span class="t t-ru">Архив — 2025</span>
     </h1>
     <p>
-      <span class="t t-en">Volume 14 · 4 issues · 72 articles published</span>
-      <span class="t t-ru">Том 14 · 4 выпуска · 72 опубликованных статьи</span>
+      <span class="t t-en">Volume 14 · 4 issues · articles published</span>
+      <span class="t t-ru">Том 14 · 4 выпуска · опубликованных статьи</span>
     </p>
   </div>
 </div>
@@ -233,13 +233,13 @@ footer p { font-size:12px; }
         <span class="article-num">01</span>
         <div>
           <a href="maqola2025/maqola1.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Machine Learning in Climate Prediction Models: A Systematic Review</span>
-            <span class="t t-ru">Машинное обучение в моделях прогнозирования климата: систематический обзор</span>
+            <span class="t t-en">Transfer Learning Strategies for Medical Image Classification with Limited Annotated Data</span>
+            <span class="t t-ru">Стратегии трансферного обучения для классификации медицинских изображений при ограниченных аннотированных данных</span>
           </a>
           <div class="article-authors">Nazarov B., Kim S., Petrov I.</div>
-          <div class="article-pages">pp. 1–19 · </div>
+          <div class="article-pages">pp. 3–19 · </div>
           <div class="article-tags">
-            <span class="tag">ML</span><span class="tag">Climate</span><span class="tag">Review</span>
+            <span class="tag">Deep Learning</span><span class="tag">Medical Imaging</span><span class="tag">Transfer Learning</span>
           </div>
           <a href="maqola2025/maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -248,13 +248,13 @@ footer p { font-size:12px; }
         <span class="article-num">02</span>
         <div>
           <a href="maqola2025/maqola2.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Structural Analysis of High-Rise Buildings Under Seismic Loads</span>
-            <span class="t t-ru">Структурный анализ высотных зданий при сейсмических нагрузках</span>
+            <span class="t t-en">Dynamic Response Analysis of Long-Span Bridge Structures Under Traffic-Induced Vibrations</span>
+            <span class="t t-ru">Анализ динамического отклика пролётных мостовых конструкций под воздействием вибраций от транспортного потока</span>
           </a>
           <div class="article-authors">Tursunov A., Volkov D.</div>
           <div class="article-pages">pp. 20–38 · </div>
           <div class="article-tags">
-            <span class="tag">Civil Eng.</span><span class="tag">Seismic</span>
+            <span class="tag">Civil Engineering</span><span class="tag">Bridge</span><span class="tag">Vibration</span>
           </div>
           <a href="maqola2025/maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -263,13 +263,13 @@ footer p { font-size:12px; }
         <span class="article-num">03</span>
         <div>
           <a href="maqola2025/maqola3.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Electrochemical Properties of Graphene-Based Supercapacitors</span>
-            <span class="t t-ru">Электрохимические свойства суперконденсаторов на основе графена</span>
+            <span class="t t-en">Ionic Liquid Electrolytes for Enhanced Performance of Lithium-Sulfur Battery Systems</span>
+            <span class="t t-ru">Ионно-жидкостные электролиты для повышения производительности литий-серных аккумуляторных систем</span>
           </a>
           <div class="article-authors">Rashidova M., Chen W., Smirnova E.</div>
           <div class="article-pages">pp. 39–55 · </div>
           <div class="article-tags">
-            <span class="tag">Materials</span><span class="tag">Energy</span><span class="tag">Graphene</span>
+            <span class="tag">Batteries</span><span class="tag">Electrochemistry</span><span class="tag">Energy Storage</span>
           </div>
           <a href="maqola2025/maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -278,13 +278,13 @@ footer p { font-size:12px; }
         <span class="article-num">04</span>
         <div>
           <a href="maqola2025/maqola4.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Federated Learning for Privacy-Preserving Medical Diagnostics</span>
-            <span class="t t-ru">Федеративное обучение для медицинской диагностики с защитой конфиденциальности</span>
+            <span class="t t-en">Explainable Artificial Intelligence Methods for Clinical Decision Support in Cardiovascular Diseases</span>
+            <span class="t t-ru">Методы объяснимого искусственного интеллекта для поддержки клинических решений при сердечно-сосудистых заболеваниях</span>
           </a>
           <div class="article-authors">Mirzayev S., Ivanova T., Park J.</div>
           <div class="article-pages">pp. 56–74 · </div>
           <div class="article-tags">
-            <span class="tag">AI</span><span class="tag">Medical</span><span class="tag">Privacy</span>
+            <span class="tag">XAI</span><span class="tag">Healthcare</span><span class="tag">Cardiology</span>
           </div>
           <a href="maqola2025/maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -293,13 +293,13 @@ footer p { font-size:12px; }
         <span class="article-num">05</span>
         <div>
           <a href="maqola2025/maqola5.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Drought Tolerance Mechanisms in Central Asian Wheat Varieties</span>
-            <span class="t t-ru">Механизмы засухоустойчивости сортов пшеницы Центральной Азии</span>
+            <span class="t t-en">Soil Microbiome Composition and Functional Diversity in Arid Agricultural Ecosystems of Uzbekistan</span>
+            <span class="t t-ru">Состав и функциональное разнообразие почвенного микробиома в засушливых агроэкосистемах Узбекистана</span>
           </a>
           <div class="article-authors">Yusupova G., Hashimoto K.</div>
           <div class="article-pages">pp. 75–91 · </div>
           <div class="article-tags">
-            <span class="tag">Biology</span><span class="tag">Agriculture</span>
+            <span class="tag">Microbiology</span><span class="tag">Soil Science</span><span class="tag">Ecology</span>
           </div>
           <a href="maqola2025/maqola5.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -340,13 +340,13 @@ footer p { font-size:12px; }
         <span class="article-num">01</span>
         <div>
           <a href="maqola2025/q3_maqola1.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Smart Grid Optimization Using Reinforcement Learning Algorithms</span>
-            <span class="t t-ru">Оптимизация умных сетей с использованием алгоритмов обучения с подкреплением</span>
+            <span class="t t-en">Vehicle-to-Grid Integration for Electric Bus Fleet Management in Urban Transportation Networks</span>
+            <span class="t t-ru">Интеграция транспортных средств в сеть для управления парком электробусов в городских транспортных сетях</span>
           </a>
           <div class="article-authors">Abdullaev N., Torres M., Li X.</div>
-          <div class="article-pages">pp. 1–18 · </div>
+          <div class="article-pages">pp. 3–18 · </div>
           <div class="article-tags">
-            <span class="tag">Energy</span><span class="tag">AI</span><span class="tag">Smart Grid</span>
+            <span class="tag">EV</span><span class="tag">V2G</span><span class="tag">Urban Energy</span>
           </div>
           <a href="maqola2025/q3_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -355,13 +355,13 @@ footer p { font-size:12px; }
         <span class="article-num">02</span>
         <div>
           <a href="maqola2025/q3_maqola2.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Bioremediation of Heavy Metals in Industrial Wastewater</span>
-            <span class="t t-ru">Биоремедиация тяжёлых металлов в промышленных сточных водах</span>
+            <span class="t t-en">Constructed Wetland Systems for Nitrogen and Phosphorus Removal from Agricultural Drainage Water</span>
+            <span class="t t-ru">Системы искусственных водно-болотных угодий для удаления азота и фосфора из сельскохозяйственных дренажных вод</span>
           </a>
           <div class="article-authors">Karimova D., Petrov I.</div>
           <div class="article-pages">pp. 19–35 · </div>
           <div class="article-tags">
-            <span class="tag">Environment</span><span class="tag">Chemistry</span>
+            <span class="tag">Wetlands</span><span class="tag">Water Treatment</span><span class="tag">Nutrient Removal</span>
           </div>
           <a href="maqola2025/q3_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -370,13 +370,13 @@ footer p { font-size:12px; }
         <span class="article-num">03</span>
         <div>
           <a href="maqola2025/q3_maqola3.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Advances in Autonomous Vehicle Path Planning Algorithms</span>
-            <span class="t t-ru">Достижения в алгоритмах планирования маршрута для автономных транспортных средств</span>
+            <span class="t t-en">Swarm Intelligence Algorithms for Coordinated Multi-Robot Task Allocation in Logistics Environments</span>
+            <span class="t t-ru">Алгоритмы роевого интеллекта для координированного распределения задач между роботами в логистических средах</span>
           </a>
           <div class="article-authors">Nazarov B., Yamamoto R.</div>
           <div class="article-pages">pp. 36–54 · </div>
           <div class="article-tags">
-            <span class="tag">Robotics</span><span class="tag">AI</span>
+            <span class="tag">Swarm Robotics</span><span class="tag">Multi-Robot</span><span class="tag">Logistics</span>
           </div>
           <a href="maqola2025/q3_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -385,13 +385,13 @@ footer p { font-size:12px; }
         <span class="article-num">04</span>
         <div>
           <a href="maqola2025/q3_maqola4.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Thermal Performance Analysis of Phase Change Materials in Building Walls</span>
-            <span class="t t-ru">Анализ теплофизических характеристик материалов с фазовым переходом в стенах зданий</span>
+            <span class="t t-en">Energy Efficiency Assessment of Green Roof Systems in Hot Semi-Arid Climate Zones</span>
+            <span class="t t-ru">Оценка энергоэффективности зелёных кровель в жаркой полузасушливой климатической зоне</span>
           </a>
           <div class="article-authors">Toshmatov B., Müller H.</div>
           <div class="article-pages">pp. 55–71 · </div>
           <div class="article-tags">
-            <span class="tag">Materials</span><span class="tag">Building</span>
+            <span class="tag">Green Building</span><span class="tag">Energy Efficiency</span><span class="tag">Climate</span>
           </div>
           <a href="maqola2025/q3_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -432,13 +432,13 @@ footer p { font-size:12px; }
         <span class="article-num">01</span>
         <div>
           <a href="maqola2025/q2_maqola1.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Hybrid Solar-Wind Energy Systems for Remote Communities</span>
-            <span class="t t-ru">Гибридные солнечно-ветровые энергосистемы для отдалённых сообществ</span>
+            <span class="t t-en">Concentrated Solar Power with Molten Salt Thermal Storage for Continuous Baseload Generation</span>
+            <span class="t t-ru">Концентрированная солнечная энергетика с тепловым аккумулятором на расплавленных солях для непрерывной базовой генерации</span>
           </a>
           <div class="article-authors">Yusupov R., Santos P., Hashimoto K.</div>
-          <div class="article-pages">pp. 1–20 · </div>
+          <div class="article-pages">pp. 3–20 · </div>
           <div class="article-tags">
-            <span class="tag">Energy</span><span class="tag">Renewable</span>
+            <span class="tag">CSP</span><span class="tag">Solar Energy</span><span class="tag">Thermal Storage</span>
           </div>
           <a href="maqola2025/q2_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -447,13 +447,13 @@ footer p { font-size:12px; }
         <span class="article-num">02</span>
         <div>
           <a href="maqola2025/q2_maqola2.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Natural Language Processing for Uzbek Language: Challenges and Progress</span>
-            <span class="t t-ru">Обработка естественного языка для узбекского языка: проблемы и прогресс</span>
+            <span class="t t-en">Neural Machine Translation Quality Enhancement for Uzbek-Russian and Uzbek-English Language Pairs</span>
+            <span class="t t-ru">Повышение качества нейросетевого машинного перевода для языковых пар узбекский–русский и узбекский–английский</span>
           </a>
           <div class="article-authors">Mirzayev S., Karimov A.</div>
           <div class="article-pages">pp. 21–40 · </div>
           <div class="article-tags">
-            <span class="tag">NLP</span><span class="tag">AI</span><span class="tag">Linguistics</span>
+            <span class="tag">NMT</span><span class="tag">Machine Translation</span><span class="tag">Low-Resource NLP</span>
           </div>
           <a href="maqola2025/q2_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -462,13 +462,13 @@ footer p { font-size:12px; }
         <span class="article-num">03</span>
         <div>
           <a href="maqola2025/q2_maqola3.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Corrosion Behavior of Stainless Steel in High-Salinity Environments</span>
-            <span class="t t-ru">Коррозионное поведение нержавеющей стали в высокосолёных средах</span>
+            <span class="t t-en">Microstructure Characterization and Mechanical Properties of Additively Manufactured Ti-6Al-4V Alloy</span>
+            <span class="t t-ru">Характеристика микроструктуры и механические свойства аддитивно изготовленного сплава Ti-6Al-4V</span>
           </a>
           <div class="article-authors">Smirnova E., Toshmatov B.</div>
           <div class="article-pages">pp. 41–57 · </div>
           <div class="article-tags">
-            <span class="tag">Materials</span><span class="tag">Chemistry</span>
+            <span class="tag">Additive Manufacturing</span><span class="tag">Titanium</span><span class="tag">Metallurgy</span>
           </div>
           <a href="maqola2025/q2_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -477,13 +477,13 @@ footer p { font-size:12px; }
         <span class="article-num">04</span>
         <div>
           <a href="maqola2025/q2_maqola4.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Groundwater Quality Assessment in Aral Sea Basin</span>
-            <span class="t t-ru">Оценка качества подземных вод в бассейне Аральского моря</span>
+            <span class="t t-en">Long-Term Salinization Trends in Irrigated Farmlands of the Syrdarya River Basin</span>
+            <span class="t t-ru">Долгосрочные тенденции засоления орошаемых сельскохозяйственных угодий в бассейне реки Сырдарья</span>
           </a>
           <div class="article-authors">Yusupov R., Kovalev D.</div>
           <div class="article-pages">pp. 58–76 · </div>
           <div class="article-tags">
-            <span class="tag">Hydrology</span><span class="tag">Environment</span>
+            <span class="tag">Hydrology</span><span class="tag">Salinity</span><span class="tag">Land Degradation</span>
           </div>
           <a href="maqola2025/q2_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -524,13 +524,13 @@ footer p { font-size:12px; }
         <span class="article-num">01</span>
         <div>
           <a href="maqola2025/q1_maqola1.pdf" target="_blank" class="article-title">
-            <span class="t t-en">IoT-Based Real-Time Monitoring System for Agricultural Greenhouses</span>
-            <span class="t t-ru">Система мониторинга теплиц в режиме реального времени на основе IoT</span>
+            <span class="t t-en">Edge Computing Architecture for Real-Time Process Monitoring in Smart Manufacturing Systems</span>
+            <span class="t t-ru">Архитектура граничных вычислений для мониторинга производственных процессов в реальном времени в умных производственных системах</span>
           </a>
           <div class="article-authors">Rahimov A., Zhang L.</div>
-          <div class="article-pages">pp. 1–17 · </div>
+          <div class="article-pages">pp. 3–17 · </div>
           <div class="article-tags">
-            <span class="tag">IoT</span><span class="tag">Agriculture</span>
+            <span class="tag">Edge Computing</span><span class="tag">Industry 4.0</span><span class="tag">Smart Manufacturing</span>
           </div>
           <a href="maqola2025/q1_maqola1.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -539,13 +539,13 @@ footer p { font-size:12px; }
         <span class="article-num">02</span>
         <div>
           <a href="maqola2025/q1_maqola2.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Numerical Simulation of Turbulent Flow in Pipe Networks</span>
-            <span class="t t-ru">Численное моделирование турбулентного течения в трубопроводных сетях</span>
+            <span class="t t-en">Computational Study of Heat Transfer Enhancement in Micro-Channel Heat Sinks for Electronics Cooling</span>
+            <span class="t t-ru">Вычислительное исследование интенсификации теплообмена в микроканальных теплоотводах для охлаждения электроники</span>
           </a>
           <div class="article-authors">Tursunov A., Volkov D., Müller H.</div>
           <div class="article-pages">pp. 18–36 · </div>
           <div class="article-tags">
-            <span class="tag">Fluid Dynamics</span><span class="tag">Simulation</span>
+            <span class="tag">CFD</span><span class="tag">Heat Transfer</span><span class="tag">Thermal Management</span>
           </div>
           <a href="maqola2025/q1_maqola2.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -554,13 +554,13 @@ footer p { font-size:12px; }
         <span class="article-num">03</span>
         <div>
           <a href="maqola2025/q1_maqola3.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Synthesis and Characterization of ZnO Nanoparticles for Antibacterial Use</span>
-            <span class="t t-ru">Синтез и характеристика наночастиц ZnO для антибактериального применения</span>
+            <span class="t t-en">Green Synthesis of Silver Nanoparticles Using Medicinal Plant Extracts and Their Antibacterial Properties</span>
+            <span class="t t-ru">Зелёный синтез наночастиц серебра с использованием экстрактов лекарственных растений и их антибактериальные свойства</span>
           </a>
           <div class="article-authors">Rashidova M., Petrov I.</div>
           <div class="article-pages">pp. 37–53 · </div>
           <div class="article-tags">
-            <span class="tag">Nanotechnology</span><span class="tag">Chemistry</span>
+            <span class="tag">Green Chemistry</span><span class="tag">Silver Nanoparticles</span><span class="tag">Antimicrobial</span>
           </div>
           <a href="maqola2025/q1_maqola3.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -569,13 +569,13 @@ footer p { font-size:12px; }
         <span class="article-num">04</span>
         <div>
           <a href="maqola2025/q1_maqola4.pdf" target="_blank" class="article-title">
-            <span class="t t-en">Cybersecurity Threats in Smart Infrastructure: Risk Assessment Framework</span>
-            <span class="t t-ru">Угрозы кибербезопасности в умной инфраструктуре: система оценки рисков</span>
+            <span class="t t-en">Zero-Trust Security Architecture for Critical Infrastructure Protection Against Advanced Persistent Threats</span>
+            <span class="t t-ru">Архитектура нулевого доверия для защиты критической инфраструктуры от угроз повышенной сложности</span>
           </a>
           <div class="article-authors">Mirzayev S., Torres M.</div>
           <div class="article-pages">pp. 54–72 · </div>
           <div class="article-tags">
-            <span class="tag">Cybersecurity</span><span class="tag">IoT</span>
+            <span class="tag">Zero-Trust</span><span class="tag">Critical Infrastructure</span><span class="tag">APT</span>
           </div>
           <a href="maqola2025/q1_maqola4.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
         </div>
@@ -660,6 +660,14 @@ function injectCertButtons() {
   const lang = localStorage.getItem('lang') || 'en';
   setLang(lang);
   injectCertButtons();
+  // Remove PDF links — titles become plain text, pdf-btn removed
+  document.querySelectorAll('.article-title').forEach(el => {
+    el.removeAttribute('href');
+    el.removeAttribute('target');
+    el.style.cursor = 'default';
+    el.style.color = 'var(--navy)';
+  });
+  document.querySelectorAll('.pdf-btn').forEach(el => el.remove());
 })();
 </script>
 </body>
