@@ -1,0 +1,3 @@
+2026 yilgi maqolalar.
+q1_maqola1
+q1_maqola2 kabi yoziladi
