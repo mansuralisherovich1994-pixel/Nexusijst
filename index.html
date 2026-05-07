@@ -216,6 +216,22 @@ footer ul li a:hover { color:var(--gold-light); }
   .editorial-section, .submit-section, footer, .page-hero, .page-body,
   .submit-form-section { padding-left:20px !important; padding-right:20px !important; }
 }
+
+/* ── DOWNLOAD SECTION ── */
+.download-section { padding: 72px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
+.download-inner { max-width: 1200px; margin: 0 auto; }
+.download-card { background: #fff; border: 1px solid var(--border); padding: 28px; position: relative; overflow: hidden; transition: all .25s; max-width: 420px; }
+.download-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(15,31,61,.1); transform: translateY(-2px); }
+.download-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--gold); }
+.download-card-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.download-card h3 { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.download-card p { font-size:13px; color:var(--text-muted); margin-bottom:18px; line-height:1.6; }
+.download-card-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+.download-card-meta span { font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); background:var(--cream); border:1px solid var(--border); padding:2px 8px; border-radius:2px; }
+.btn-download { display:inline-flex; align-items:center; gap:8px; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.08em; padding:10px 20px; text-decoration:none; border:none; cursor:pointer; transition:all .2s; }
+.btn-download:hover { background:var(--gold); color:var(--navy); }
+.btn-download svg { width:14px; height:14px; }
+
 </style>
 </head>
 <body class="en">
@@ -454,31 +470,43 @@ footer ul li a:hover { color:var(--gold-light); }
   </section>
 
   <!-- NEWS -->
-  <section class="news-section">
-    <div class="news-inner">
-      <div class="section-eyebrow"><span class="t t-en">News & Announcements</span><span class="t t-ru">Новости и объявления</span></div>
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-date"><span class="t t-en">15 MAY 2025</span><span class="t t-ru">15 МАЯ 2025</span></div>
-          <h3><span class="t t-en">Call for Papers: Special Issue on Sustainable Energy</span><span class="t t-ru">Приглашение: спецвыпуск по возобновляемой энергетике</span></h3>
-          <p><span class="t t-en">Submissions open until August 30, 2025.</span><span class="t t-ru">Приём статей до 30 августа 2025 г.</span></p>
-          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
-        </div>
-        <div class="news-card">
-          <div class="news-date"><span class="t t-en">02 APR 2025</span><span class="t t-ru">02 АПР 2025</span></div>
-          <h3><span class="t t-en">Journal Included in Scopus Database</span><span class="t t-ru">Журнал включён в базу данных Scopus</span></h3>
-          <p><span class="t t-en">The journal is now fully indexed in Elsevier's Scopus citation database.</span><span class="t t-ru">Журнал полностью проиндексирован в реферативной базе Scopus.</span></p>
-          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
-        </div>
-        <div class="news-card">
-          <div class="news-date"><span class="t t-en">10 MAR 2025</span><span class="t t-ru">10 МАР 2025</span></div>
-          <h3><span class="t t-en">Updated Author Guidelines for 2025</span><span class="t t-ru">Обновлённые рекомендации для авторов 2025</span></h3>
-          <p><span class="t t-en">New manuscript formatting requirements are now in effect.</span><span class="t t-ru">Новые требования к оформлению рукописей вступили в силу.</span></p>
-          <span class="read-more"><span class="t t-en">Read more →</span><span class="t t-ru">Подробнее →</span></span>
-        </div>
-      </div>
+
+<section class="download-section">
+  <div class="download-inner">
+    <div class="section-eyebrow">
+      <span class="t t-en">Downloads</span>
+      <span class="t t-ru">Загрузки</span>
     </div>
-  </section>
+    <h2 class="section-title" style="margin-bottom:24px;">
+      <span class="t t-en">Sample Template</span>
+      <span class="t t-ru">Пример шаблона</span>
+    </h2>
+    <div class="download-card">
+      <span class="download-card-icon">📄</span>
+      <h3>
+        <span class="t t-en">Manuscript Template</span>
+        <span class="t t-ru">Шаблон рукописи</span>
+      </h3>
+      <p>
+        <span class="t t-en">Official MS Word template with correct formatting, margins, fonts, and section structure for submission.</span>
+        <span class="t t-ru">Официальный шаблон MS Word с правильным форматированием, полями, шрифтами и структурой разделов.</span>
+      </p>
+      <div class="download-card-meta">
+        <span>DOCX</span>
+        <span>temp_article.docx</span>
+      </div>
+      <a href="temp_article.docx" download="temp_article.docx" class="btn-download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="t t-en">Download Template</span>
+        <span class="t t-ru">Скачать шаблон</span>
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- SUBMIT CTA -->
   <section class="submit-section">
